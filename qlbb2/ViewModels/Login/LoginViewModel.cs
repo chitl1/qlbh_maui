@@ -36,8 +36,12 @@ namespace qlbb2.ViewModels.Login
                     await App.Current.MainPage.DisplayAlert("Error", "Invalid username or password.", "OK");
                     return;
                 }
-                await App.Current.MainPage.DisplayAlert("Success", $"Welcome {Username}!", "OK");
+                // Lưu role và username vào Preferences
+                Preferences.Set("UserRole", result.Role);
+                Preferences.Set("UserName", result.UserName);
 
+                await App.Current.MainPage.DisplayAlert("Success", $"Welcome {Username}!", "OK");
+                Application.Current.MainPage = new AppShell();
                 // Navigate to the main page after successful login
                 await Shell.Current.GoToAsync("//MainPage");
                 //await Shell.Current.GoToAsync(nameof(MainPage));

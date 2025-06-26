@@ -31,30 +31,38 @@ namespace qlbb2.ViewModels.Users
         [RelayCommand]
         private async void AddUser()
         {
-            if (string.IsNullOrWhiteSpace(UserName) || string.IsNullOrWhiteSpace(Password) || string.IsNullOrWhiteSpace(SelectedRole))
+            try
             {
-                await App.Current.MainPage.DisplayAlert("Error", "All fields are required", "OK");
-                return;
+                if (string.IsNullOrWhiteSpace(UserName) || string.IsNullOrWhiteSpace(Password) || string.IsNullOrWhiteSpace(SelectedRole))
+                {
+                    await App.Current.MainPage.DisplayAlert("Error", "All fields are required", "OK");
+                    return;
+                }
+
+                // Here you would typically call a service to add the user
+                var user = new User
+                {
+                    UserName = UserName,
+                    Password = Password,
+                    Role = SelectedRole,
+                };
+                await _userService.AddPersonAsync(user);
+
+                // Clear fields after adding
+                UserName = string.Empty;
+                Password = string.Empty;
+                SelectedRole = string.Empty;
+
+                // Optionally notify the main page or close the popup
+                await App.Current.MainPage.DisplayAlert("Success", "User added successfully", "OK");
+                //MessagingCenter.Send(this, "UserAdded");
+                //MessagingCenter.Send<UserViewModel>(userViewModelInstance, "UserAdded");
+                await Shell.Current.GoToAsync("///UserPage");
             }
-
-            // Here you would typically call a service to add the user
-            var user = new User
+            catch (Exception ex)
             {
-                UserName = UserName,
-                Password = Password,
-                Role = SelectedRole,
-            };
-            await _userService.AddPersonAsync(user);
-
-            // Clear fields after adding
-            UserName = string.Empty;
-            Password = string.Empty;
-            SelectedRole = string.Empty;
-
-            // Optionally notify the main page or close the popup
-            await App.Current.MainPage.DisplayAlert("Success", "User added successfully", "OK");
-            await Shell.Current.GoToAsync("///UserPage");
-
+                await App.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
+            }
 
         }
         [RelayCommand]

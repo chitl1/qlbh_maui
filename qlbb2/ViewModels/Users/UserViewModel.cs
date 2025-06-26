@@ -55,14 +55,59 @@ namespace qlbb2.ViewModels.Users
         [RelayCommand]
         private async void AddUser()
         {
+            try
+            {
+                await Shell.Current.GoToAsync(nameof(AddUserPage));
+                //await Shell.Current.GoToAsync($"//{nameof(AddUserPage)}");
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions, e.g., navigation issues
+                await App.Current.MainPage.DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
+            
+            }
             //await Shell.Current.GoToAsync(nameof(AddUserPopupPage));
-            await Shell.Current.GoToAsync($"//{nameof(AddUserPage)}");
+
         }
         [RelayCommand]
         private async void ClearSearch()
         {
             SearchText = string.Empty;
             LoadUsers();
+        }
+        [RelayCommand]
+        private async void DeleteUser(User user)
+        {
+            if (user == null) return;
+
+            bool confirm = await App.Current.MainPage.DisplayAlert("Confirm", $"Are you sure you want to delete user {user.UserName}?", "Yes", "No");
+            if (confirm)
+            {
+                //try
+                //{
+                //    await _userService.DeleteUserAsync(user.Id);
+                //    Users.Remove(user);
+                //    await App.Current.MainPage.DisplayAlert("Success", "User deleted successfully.", "OK");
+                //}
+                //catch (Exception ex)
+                //{
+                //    await App.Current.MainPage.DisplayAlert("Error", $"An error occurred while deleting the user: {ex.Message}", "OK");
+                //}
+            }
+        }
+        [RelayCommand]
+        private async void EditUser(User user)
+        {
+            //if (user == null) return;
+
+            //try
+            //{
+            //    await Shell.Current.GoToAsync($"{nameof(EditUserPage)}?userId={user.Id}");
+            //}
+            //catch (Exception ex)
+            //{
+            //    await App.Current.MainPage.DisplayAlert("Error", $"An error occurred while editing the user: {ex.Message}", "OK");
+            //}
         }
     }
 }

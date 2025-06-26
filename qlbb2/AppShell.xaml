@@ -7,19 +7,23 @@
     Shell.FlyoutBehavior="Disabled"
     Title="qlbb2">
     <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+
     <TabBar>
         <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+            Title="Home"
+            x:Name="HomeTab"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage" />
         <ShellContent
-        Title="User"
-        ContentTemplate="{DataTemplate local:UserPage}"
-        Route="UserPage" />
+            Title="UserPage"
+            x:Name="UserTab"
+            ContentTemplate="{DataTemplate local:UserPage}"
+            Route="UserPage" />
         <ShellContent
-         Title="Report"
-         ContentTemplate="{DataTemplate local:ReportPage}"
-         Route="ReportPage" />
+            Title="Report"
+            x:Name="ReportTab"
+             ContentTemplate="{DataTemplate local:ReportPage}"
+             Route="ReportPage" />
     </TabBar>
 
 </Shell>

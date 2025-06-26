@@ -1,4 +1,5 @@
-﻿using qlbb2.Views;
+﻿using Microsoft.Maui.Storage;
+using qlbb2.Views;
 
 namespace qlbb2
 {
@@ -20,6 +21,19 @@ namespace qlbb2
             _logoutItem.Clicked += OnLogoutClicked;
 
             this.Navigated += AppShell_Navigated;
+            var role = Preferences.Get("UserRole", string.Empty);
+            if (role == "User")
+            {
+                var tabBar = this.Items.OfType<TabBar>().FirstOrDefault();
+                if (tabBar != null)
+                {
+                    var userTab = tabBar.Items.FirstOrDefault(x => x.Title == "UserPage");
+                    if (userTab != null)
+                    {
+                        tabBar.Items.Remove(userTab); // Xoá UserPage khỏi TabBar
+                    }
+                }
+            }
         }
         private void AppShell_Navigated(object sender, ShellNavigatedEventArgs e)
         {
@@ -42,7 +56,10 @@ namespace qlbb2
                 bool confirm = await Shell.Current.DisplayAlert("Xác nhận", "Bạn muốn đăng xuất?", "Đăng xuất", "Huỷ");
                 if (confirm)
                 {
+                    Preferences.Remove("UserRole");
+                    Preferences.Remove("UserName");
                     await Shell.Current.GoToAsync("//LoginPage");
+
                 }
             }
             catch (Exception ex)

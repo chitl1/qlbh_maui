@@ -11,5 +11,19 @@ public partial class UserPage : ContentPage
 		InitializeComponent();
 		_vm = vm;
         BindingContext = _vm;
+        //MessagingCenter.Subscribe<AddUserViewModel>(this, "UserAdded", (sender) =>
+        //{
+        //    _vm.LoadUsers();
+        //});
+    }
+    //protected override void OnDisappearing()
+    //{
+    //    base.OnDisappearing();
+    //    MessagingCenter.Unsubscribe<AddUserViewModel>(this, "UserAdded");
+    //}
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        _vm.LoadUsers();
     }
 }
