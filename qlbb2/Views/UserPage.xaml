@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="qlbb2.Views.UserPage"
+             x:Name="UserPageRoot"
              Title="UserPage">
     <VerticalStackLayout>
         <HorizontalStackLayout Spacing="10" Padding="10">
@@ -13,22 +14,23 @@
         </HorizontalStackLayout>
         <CollectionView ItemsSource="{Binding Users}" Margin="10,0,10,10">
             <CollectionView.Header>
-                <Grid ColumnDefinitions="2*,2*,3*,Auto,Auto" Padding="10" BackgroundColor="AliceBlue">
+                <Grid ColumnDefinitions="2*,2*,3*,Auto" Padding="10" BackgroundColor="AliceBlue">
                     <Label Text="UserId" Grid.Column="0" FontAttributes="Bold" />
                     <Label Text="UserName" Grid.Column="1" FontAttributes="Bold" />
                     <Label Text="Role" Grid.Column="2" FontAttributes="Bold" />
                     <Label Text="" Grid.Column="3" />
-                    <Label Text="" Grid.Column="4" />
                 </Grid>
             </CollectionView.Header>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid ColumnDefinitions="2*,2*,3*,Auto,Auto" Padding="10" BackgroundColor="White">
+                    <Grid ColumnDefinitions="2*,2*,3*,Auto" Padding="10" BackgroundColor="White">
                         <Label Text="{Binding UserId}" Grid.Column="0" />
                         <Label Text="{Binding UserName}" Grid.Column="1" />
                         <Label Text="{Binding Role}" Grid.Column="2" />
-                        <Button Text="Sửa" Grid.Column="3" Command="{Binding DataContext.EditUserCommand, Source={x:Reference Name=UserPageRoot}}" CommandParameter="{Binding .}" />
-                        <Button Text="Xóa" Grid.Column="4" Command="{Binding DataContext.DeleteUserCommand, Source={x:Reference Name=UserPageRoot}}" CommandParameter="{Binding .}" />
+                        <Button Text="Xóa"
+                                Grid.Column="3"
+                                Command="{Binding Source={x:Reference UserPageRoot}, Path=BindingContext.DeleteUserCommand}"
+                                CommandParameter="{Binding .}" />
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
