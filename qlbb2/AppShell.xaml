@@ -7,7 +7,7 @@
     Shell.FlyoutBehavior="Disabled"
     Title="qlbb2">
     <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
-    <!--<TabBar>
+    <TabBar>
         <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
@@ -16,6 +16,10 @@
         Title="User"
         ContentTemplate="{DataTemplate local:UserPage}"
         Route="UserPage" />
-    </TabBar>-->
+        <ShellContent
+         Title="Report"
+         ContentTemplate="{DataTemplate local:ReportPage}"
+         Route="ReportPage" />
+    </TabBar>
 
 </Shell>

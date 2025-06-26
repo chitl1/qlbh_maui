@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using qlbb2.Model;
 using qlbb2.Services;
+using qlbb2.Views;
 
 namespace qlbb2.ViewModels.Login
 {
@@ -18,25 +19,35 @@ namespace qlbb2.ViewModels.Login
         [RelayCommand]
         private async void Login()
         {
-            // Simulate a login operation
-            if (string.IsNullOrWhiteSpace(Username) || string.IsNullOrWhiteSpace(Password))
+            try
             {
-                await App.Current.MainPage.DisplayAlert("Error", "Username and password cannot be empty.", "OK");
-                return;
-            }
+                // Simulate a login operation
+                if (string.IsNullOrWhiteSpace(Username) || string.IsNullOrWhiteSpace(Password))
+                {
+                    await App.Current.MainPage.DisplayAlert("Error", "Username and password cannot be empty.", "OK");
+                    return;
+                }
 
-            // Here you would typically call a service to perform the login
-            // For now, we just simulate a successful login
-            UserInfo result = await _loginService.LoginAsync(Username, Password);
-            if (result == null)
+                // Here you would typically call a service to perform the login
+                // For now, we just simulate a successful login
+                UserInfo result = await _loginService.LoginAsync(Username, Password);
+                if (result == null)
+                {
+                    await App.Current.MainPage.DisplayAlert("Error", "Invalid username or password.", "OK");
+                    return;
+                }
+                await App.Current.MainPage.DisplayAlert("Success", $"Welcome {Username}!", "OK");
+
+                // Navigate to the main page after successful login
+                await Shell.Current.GoToAsync("//MainPage");
+                //await Shell.Current.GoToAsync(nameof(MainPage));
+
+            }
+            catch (Exception ex)
             {
-                await App.Current.MainPage.DisplayAlert("Error", "Invalid username or password.", "OK");
-                return;
+                // Handle exceptions, e.g., network issues
+                await App.Current.MainPage.DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
             }
-            await App.Current.MainPage.DisplayAlert("Success", $"Welcome {Username}!", "OK");
-
-            // Navigate to the main page after successful login
-            await Shell.Current.GoToAsync("//MainPage");
         }
     }
 }
