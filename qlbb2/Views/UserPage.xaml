@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="qlbb2.Views.UserPage"
+             Title="UserPage">
+    <VerticalStackLayout>
+        <HorizontalStackLayout Spacing="10" Padding="10">
+            <Entry x:Name="SearchEntry" Placeholder="Nhập tên user..." Text="{Binding SearchText}"  />
+            <Button Text="Search" Command="{Binding SearchUsersCommand}" />
+            <Button Text="Add"  Command="{Binding AddUserCommand}"/>
+            <Button Text="Clear"  Command="{Binding ClearSearchCommand}"/>
+            <!--<Button Text="Add" Clicked="AddUserButton_Clicked"/>-->
+        </HorizontalStackLayout>
+        <CollectionView ItemsSource="{Binding Users}" Margin="10,0,10,10">
+            <CollectionView.Header>
+                <Grid ColumnDefinitions="2*,2*,3*" Padding="10" BackgroundColor="AliceBlue">
+                    <Label Text="UserId" Grid.Column="0" FontAttributes="Bold" />
+                    <Label Text="UserName" Grid.Column="1" FontAttributes="Bold" />
+                    <Label Text="Role" Grid.Column="2" FontAttributes="Bold" />
+                </Grid>
+            </CollectionView.Header>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="2*,2*,3*" Padding="10" BackgroundColor="White">
+                        <Label Text="{Binding UserId}" Grid.Column="0" />
+                        <Label Text="{Binding UserName}" Grid.Column="1" />
+                        <Label Text="{Binding Role}" Grid.Column="2" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

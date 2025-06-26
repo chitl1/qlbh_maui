@@ -1,0 +1,42 @@
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using qlbb2.Model;
+using qlbb2.Services;
+
+namespace qlbb2.ViewModels.Login
+{
+    public partial class LoginViewModel : ObservableObject
+    {
+        private readonly ILoginService _loginService;
+        [ObservableProperty]
+        private string _username;
+        [ObservableProperty]
+        private string _password;
+        public LoginViewModel(ILoginService loginService) {
+            _loginService = loginService;
+        }
+        [RelayCommand]
+        private async void Login()
+        {
+            // Simulate a login operation
+            if (string.IsNullOrWhiteSpace(Username) || string.IsNullOrWhiteSpace(Password))
+            {
+                await App.Current.MainPage.DisplayAlert("Error", "Username and password cannot be empty.", "OK");
+                return;
+            }
+
+            // Here you would typically call a service to perform the login
+            // For now, we just simulate a successful login
+            UserInfo result = await _loginService.LoginAsync(Username, Password);
+            if (result == null)
+            {
+                await App.Current.MainPage.DisplayAlert("Error", "Invalid username or password.", "OK");
+                return;
+            }
+            await App.Current.MainPage.DisplayAlert("Success", $"Welcome {Username}!", "OK");
+
+            // Navigate to the main page after successful login
+            await Shell.Current.GoToAsync("//MainPage");
+        }
+    }
+}
