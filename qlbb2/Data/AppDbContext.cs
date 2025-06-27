@@ -1,6 +1,4 @@
-﻿
-
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using qlbb2.Entities;
 
 namespace qlbb2.Data
@@ -15,7 +13,15 @@ namespace qlbb2.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Configure entity properties and relationships here if needed
+            // Configure User entity
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasKey(e => e.UserId);
+                entity.Property(e => e.UserName).IsRequired();
+                entity.Property(e => e.Password).IsRequired();
+                entity.Property(e => e.Role).IsRequired();
+            });
+
             base.OnModelCreating(modelBuilder);
         }
 

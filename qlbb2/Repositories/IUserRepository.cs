@@ -1,6 +1,4 @@
-﻿
-
-using qlbb2.Entities;
+﻿using qlbb2.Entities;
 
 namespace qlbb2.Repositories
 {
@@ -10,7 +8,7 @@ namespace qlbb2.Repositories
         Task AddAsync(User user);
         Task<User> GetByIdAsync(int id);
         Task UpdateAsync(User user);
-        Task DeleteAsync(int id);
+        Task DeleteAsync(User user);
         Task<List<User>> SearchAsync(string searchText);
     }
 }

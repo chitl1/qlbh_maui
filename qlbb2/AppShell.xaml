@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:qlbb2.Views"
     Shell.FlyoutBehavior="Disabled"
     Title="qlbb2">
-    <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+    <!--<ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />-->
 
     <TabBar>
         <ShellContent

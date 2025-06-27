@@ -1,7 +1,7 @@
-﻿
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using qlbb2.Data;
 using qlbb2.Entities;
+using System;
 
 namespace qlbb2.Repositories
 {
@@ -17,9 +17,12 @@ namespace qlbb2.Repositories
             return _context.SaveChangesAsync();
         }
 
-        public Task DeleteAsync(int id)
+        public Task DeleteAsync(User user)
         {
-            _context.Users.Remove(new User { UserId = id });
+            if (user == null)
+                throw new ArgumentNullException(nameof(user), "User cannot be null");
+
+            _context.Users.Remove(user);
             return _context.SaveChangesAsync();
         }
 

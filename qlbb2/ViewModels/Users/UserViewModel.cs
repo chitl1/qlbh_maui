@@ -78,11 +78,18 @@ namespace qlbb2.ViewModels.Users
         [RelayCommand]
         private async Task DeleteUser(User user)
         {
-            if (user == null) return;
-            bool confirm = await App.Current.MainPage.DisplayAlert("Xác nhận", $"Bạn có chắc muốn xóa user {user.UserName}?", "Xóa", "Hủy");
-            if (!confirm) return;
-            await _userService.DeletePersonAsync(user.UserId);
-            LoadUsers();
+            try
+            {
+                if (user == null) return;
+                bool confirm = await App.Current.MainPage.DisplayAlert("Xác nhận", $"Bạn có chắc muốn xóa user {user.UserName}?", "Xóa", "Hủy");
+                if (!confirm) return;
+                await _userService.DeletePersonAsync(user.UserId);
+                LoadUsers();
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Error", $"An error occurred while deleting the user: {ex.Message}", "OK");
+            }
         }
     }
 }

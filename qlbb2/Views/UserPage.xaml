@@ -4,15 +4,18 @@
              x:Class="qlbb2.Views.UserPage"
              x:Name="UserPageRoot"
              Title="UserPage">
-    <VerticalStackLayout>
-        <HorizontalStackLayout Spacing="10" Padding="10">
+    <Grid RowDefinitions="Auto,*">
+        <HorizontalStackLayout Grid.Row="0" Spacing="10" Padding="10">
             <Entry x:Name="SearchEntry" Placeholder="Nhập tên user..." Text="{Binding SearchText}"  />
             <Button Text="Search" Command="{Binding SearchUsersCommand}" />
             <Button Text="Add"  Command="{Binding AddUserCommand}"/>
             <Button Text="Clear"  Command="{Binding ClearSearchCommand}"/>
             <!--<Button Text="Add" Clicked="AddUserButton_Clicked"/>-->
         </HorizontalStackLayout>
-        <CollectionView ItemsSource="{Binding Users}" Margin="10,0,10,10">
+        <CollectionView Grid.Row="1"
+                       ItemsSource="{Binding Users}" 
+                       Margin="10,0,10,10"
+                       VerticalScrollBarVisibility="Always">
             <CollectionView.Header>
                 <Grid ColumnDefinitions="2*,2*,3*,Auto" Padding="10" BackgroundColor="AliceBlue">
                     <Label Text="UserId" Grid.Column="0" FontAttributes="Bold" />
@@ -35,5 +38,5 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-    </VerticalStackLayout>
+    </Grid>
 </ContentPage>

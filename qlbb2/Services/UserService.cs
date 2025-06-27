@@ -1,5 +1,6 @@
 ﻿using qlbb2.Entities;
 using qlbb2.Repositories;
+using System;
 
 namespace qlbb2.Services
 {
@@ -17,11 +18,22 @@ namespace qlbb2.Services
 
         public async Task DeletePersonAsync(int personId)
         {
-            var user = await _userRepository.GetByIdAsync(personId);
-            if (user == null)
+            try
             {
-                await _userRepository.DeleteAsync(personId);
-                return;
+                var user = await _userRepository.GetByIdAsync(personId);
+                if (user != null)
+                {
+                    await _userRepository.DeleteAsync(user);
+                }
+                else
+                {
+                    throw new InvalidOperationException($"User with ID {personId} not found.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception or handle it appropriately
+                throw new InvalidOperationException($"Error deleting user with ID {personId}: {ex.Message}", ex);
             }
         }
 
