@@ -8,6 +8,7 @@ using qlbb2.ViewModels.Login;
 using qlbb2.ViewModels.Users;
 using qlbb2.Views;
 using qlbb2.Helper;
+using qlbb2.ViewModels.Supplier;
 
 namespace qlbb2
 {
@@ -40,16 +41,20 @@ namespace qlbb2
             builder.Services.AddTransient<IUserService, UserService>();
             builder.Services.AddTransient<ILoginRepository, LoginRepository>();
             builder.Services.AddTransient<ILoginService, LoginService>();
+            builder.Services.AddTransient<ISupplierRepository, SupplierRepository>();
+            builder.Services.AddTransient<ISupplierService, SupplierService>();
 
             // Register ViewModels and Views
             builder.Services.AddSingleton<UserViewModel>();
             builder.Services.AddTransient<AddUserViewModel>();
             builder.Services.AddTransient<LoginViewModel>();
             builder.Services.AddTransient<EditUserViewModel>();
+            builder.Services.AddTransient<SupplierViewModel>();
             builder.Services.AddTransient<UserPage>();
             builder.Services.AddTransient<AddUserPage>();
             builder.Services.AddTransient<LoginPage>();
             builder.Services.AddTransient<EditUserPage>();
+            builder.Services.AddTransient<SupplierPage>();
 
             var app = builder.Build();
             ServiceHelper.ServiceProvider = app.Services;

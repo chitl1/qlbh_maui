@@ -20,6 +20,12 @@
             ContentTemplate="{DataTemplate local:UserPage}"
             Route="UserPage" />
         <ShellContent
+            Title="Nhà cung cấp"
+            x:Name="SupplierTab"
+             ContentTemplate="{DataTemplate local:SupplierPage}"
+             Route="SupplierPage" />
+
+        <ShellContent
             Title="Report"
             x:Name="ReportTab"
              ContentTemplate="{DataTemplate local:ReportPage}"

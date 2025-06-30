@@ -22,11 +22,22 @@ namespace qlbb2.Data
                 entity.Property(e => e.Role).IsRequired();
             });
 
+            // Configure Supplier entity
+            modelBuilder.Entity<Supplier>(entity =>
+            {
+                entity.HasKey(e => e.SupplierId);
+                entity.Property(e => e.SupplierName).IsRequired();
+                entity.Property(e => e.Phone).IsRequired(false);
+                entity.Property(e => e.Email).IsRequired(false);
+                entity.Property(e => e.Address).IsRequired(false);
+            });
+
             base.OnModelCreating(modelBuilder);
         }
 
         // Define DbSet properties for your entities
         public DbSet<User> Users { get; set; }
+        public DbSet<Supplier> Suppliers { get; set; }
         // Add other DbSet properties as needed
     }
 }
