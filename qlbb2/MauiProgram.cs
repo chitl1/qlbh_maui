@@ -7,6 +7,7 @@ using qlbb2.ViewModels;
 using qlbb2.ViewModels.Login;
 using qlbb2.ViewModels.Users;
 using qlbb2.Views;
+using qlbb2.Helper;
 
 namespace qlbb2
 {
@@ -44,11 +45,15 @@ namespace qlbb2
             builder.Services.AddSingleton<UserViewModel>();
             builder.Services.AddTransient<AddUserViewModel>();
             builder.Services.AddTransient<LoginViewModel>();
+            builder.Services.AddTransient<EditUserViewModel>();
             builder.Services.AddTransient<UserPage>();
             builder.Services.AddTransient<AddUserPage>();
             builder.Services.AddTransient<LoginPage>();
+            builder.Services.AddTransient<EditUserPage>();
 
-            return builder.Build();
+            var app = builder.Build();
+            ServiceHelper.ServiceProvider = app.Services;
+            return app;
         }
     }
 }

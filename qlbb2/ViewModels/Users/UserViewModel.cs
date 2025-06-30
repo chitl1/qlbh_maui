@@ -4,6 +4,9 @@ using qlbb2.Entities;
 using qlbb2.Services;
 using System.Collections.ObjectModel;
 using qlbb2.Views;
+using System.Text.Json;
+using System.Web;
+using System.Threading;
 
 namespace qlbb2.ViewModels.Users
 {
@@ -22,10 +25,33 @@ namespace qlbb2.ViewModels.Users
             _userService = userService;
             LoadUsers();
         }
+        [RelayCommand]
+        private async Task RefreshUsers()
+        {
+            await LoadUsersAsync();
+        }
+        
+        public async Task LoadUsersAsync()
+        {
+            try
+            {
+                System.Diagnostics.Debug.WriteLine("Loading users...");
+                var userList = await _userService.GetDisplayUserAsync();
+                System.Diagnostics.Debug.WriteLine($"Retrieved {userList.Count} users from service");
+                
+                Users = new ObservableCollection<User>(userList);
+                System.Diagnostics.Debug.WriteLine($"Updated ObservableCollection with {Users.Count} users");
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error loading users: {ex.Message}");
+                await App.Current.MainPage.DisplayAlert("Error", $"Failed to load users: {ex.Message}", "OK");
+            }
+        }
+        
         public async void LoadUsers()
         {
-            var userList = await _userService.GetDisplayUserAsync();
-            Users = new ObservableCollection<User>(userList);
+            await LoadUsersAsync();
         }
 
         //[RelayCommand]
@@ -89,6 +115,21 @@ namespace qlbb2.ViewModels.Users
             catch (Exception ex)
             {
                 await App.Current.MainPage.DisplayAlert("Error", $"An error occurred while deleting the user: {ex.Message}", "OK");
+            }
+        }
+        [RelayCommand]
+        private async Task EditUser(User user)
+        {
+            try
+            {
+                if (user == null) return;
+                var userJson = JsonSerializer.Serialize(user);
+                var encodedUser = HttpUtility.UrlEncode(userJson);
+                await Shell.Current.GoToAsync($"{nameof(EditUserPage)}?User={encodedUser}");
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Error", $"An error occurred while editing the user: {ex.Message}", "OK");
             }
         }
     }

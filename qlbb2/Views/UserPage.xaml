@@ -10,6 +10,7 @@
             <Button Text="Search" Command="{Binding SearchUsersCommand}" />
             <Button Text="Add"  Command="{Binding AddUserCommand}"/>
             <Button Text="Clear"  Command="{Binding ClearSearchCommand}"/>
+            <Button Text="Refresh"  Command="{Binding RefreshUsersCommand}"/>
             <!--<Button Text="Add" Clicked="AddUserButton_Clicked"/>-->
         </HorizontalStackLayout>
         <CollectionView Grid.Row="1"
@@ -17,23 +18,28 @@
                        Margin="10,0,10,10"
                        VerticalScrollBarVisibility="Always">
             <CollectionView.Header>
-                <Grid ColumnDefinitions="2*,2*,3*,Auto" Padding="10" BackgroundColor="AliceBlue">
+                <Grid ColumnDefinitions="2*,2*,3*,Auto,Auto" Padding="10" BackgroundColor="AliceBlue">
                     <Label Text="UserId" Grid.Column="0" FontAttributes="Bold" />
                     <Label Text="UserName" Grid.Column="1" FontAttributes="Bold" />
                     <Label Text="Role" Grid.Column="2" FontAttributes="Bold" />
-                    <Label Text="" Grid.Column="3" />
+                    <Label Text="Actions" Grid.Column="3" FontAttributes="Bold" />
+                    <Label Text="" Grid.Column="4" />
                 </Grid>
             </CollectionView.Header>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid ColumnDefinitions="2*,2*,3*,Auto" Padding="10" BackgroundColor="White">
+                    <Grid ColumnDefinitions="2*,2*,3*,Auto,Auto" Padding="10" BackgroundColor="White">
                         <Label Text="{Binding UserId}" Grid.Column="0" />
                         <Label Text="{Binding UserName}" Grid.Column="1" />
                         <Label Text="{Binding Role}" Grid.Column="2" />
-                        <Button Text="Xóa"
+                        <Button Text="Sửa quyền"
                                 Grid.Column="3"
-                                Command="{Binding Source={x:Reference UserPageRoot}, Path=BindingContext.DeleteUserCommand}"
+                                Command="{Binding Source={x:Reference UserPageRoot}, Path=BindingContext.EditUserCommand}"
                                 CommandParameter="{Binding .}" />
+                        <Button Text="Xóa"
+                                 Grid.Column="4"
+                                 Command="{Binding Source={x:Reference UserPageRoot}, Path=BindingContext.DeleteUserCommand}"
+                                 CommandParameter="{Binding .}" />
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

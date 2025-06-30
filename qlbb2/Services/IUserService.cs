@@ -1,6 +1,4 @@
-﻿
-
-using qlbb2.Entities;
+﻿using qlbb2.Entities;
 
 namespace qlbb2.Services
 {
@@ -9,6 +7,7 @@ namespace qlbb2.Services
         Task<List<User>> GetDisplayUserAsync();
         Task AddPersonAsync(User user);
         Task DeletePersonAsync(int personId);
+        Task UpdatePersonAsync(User user);
         Task<List<User>> SearchUsersAsync(string searchText);
     }
 }

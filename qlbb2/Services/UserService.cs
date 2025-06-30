@@ -47,5 +47,20 @@ namespace qlbb2.Services
         {
             return _userRepository.SearchAsync(searchText);
         }
+
+        public async Task UpdatePersonAsync(User user)
+        {
+            try
+            {
+                if (user == null)
+                    throw new ArgumentNullException(nameof(user), "User cannot be null");
+
+                await _userRepository.UpdateAsync(user);
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException($"Error updating user with ID {user?.UserId}: {ex.Message}", ex);
+            }
+        }
     }
 }

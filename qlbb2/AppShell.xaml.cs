@@ -1,5 +1,6 @@
 ﻿using Microsoft.Maui.Storage;
 using qlbb2.Views;
+using qlbb2.Helper;
 
 namespace qlbb2
 {
@@ -11,6 +12,8 @@ namespace qlbb2
             InitializeComponent();
             Routing.RegisterRoute(nameof(UserPage), typeof(UserPage));
             Routing.RegisterRoute(nameof(AddUserPage), typeof(AddUserPage));
+            Routing.RegisterRoute(nameof(EditUserPage), typeof(EditUserPage));
+            Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
             // Tạo logout item (chưa thêm vào)
             _logoutItem = new ToolbarItem
             {
@@ -58,8 +61,10 @@ namespace qlbb2
                 {
                     Preferences.Remove("UserRole");
                     Preferences.Remove("UserName");
-                    await Shell.Current.GoToAsync("//LoginPage");
-
+                    // Resolve LoginViewModel from DI
+                    var loginPage = ServiceHelper.GetService<qlbb2.Views.LoginPage>();
+                    //var loginVm = ServiceHelper.GetService<qlbb2.ViewModels.Login.LoginViewModel>();
+                    Application.Current.MainPage = loginPage;
                 }
             }
             catch (Exception ex)

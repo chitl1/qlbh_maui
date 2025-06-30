@@ -42,9 +42,6 @@ namespace qlbb2.ViewModels.Login
 
                 await App.Current.MainPage.DisplayAlert("Success", $"Welcome {Username}!", "OK");
                 Application.Current.MainPage = new AppShell();
-                // Navigate to the main page after successful login
-                await Shell.Current.GoToAsync("//MainPage");
-                //await Shell.Current.GoToAsync(nameof(MainPage));
 
             }
             catch (Exception ex)

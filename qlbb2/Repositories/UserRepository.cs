@@ -44,10 +44,22 @@ namespace qlbb2.Repositories
             return result;
         }
 
-        public Task UpdateAsync(User user)
+        public async Task UpdateAsync(User user)
         {
-            _context.Users.Update(user);
-            return _context.SaveChangesAsync();
+            if (user == null)
+                throw new ArgumentNullException(nameof(user), "User cannot be null");
+
+            var existingUser = await _context.Users.FindAsync(user.UserId);
+            if (existingUser == null)
+                throw new InvalidOperationException($"User with ID {user.UserId} not found.");
+
+            // Update properties
+            existingUser.UserName = user.UserName;
+            existingUser.Password = user.Password;
+            existingUser.Role = user.Role;
+
+            _context.Users.Update(existingUser);
+            await _context.SaveChangesAsync();
         }
     }
 }
