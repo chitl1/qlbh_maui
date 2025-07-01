@@ -1,8 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using qlbb2.Model;
-using qlbb2.Services;
+using qlbb2.AppService.Services.Interface;
 using qlbb2.Views;
+using qlbb2.Data.Views;
 
 namespace qlbb2.ViewModels.Login
 {

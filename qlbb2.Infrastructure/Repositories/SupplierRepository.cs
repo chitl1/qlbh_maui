@@ -1,13 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using qlbb2.Data;
-using qlbb2.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using qlbb2.Data.Entities;
+using qlbb2.Infrastructure.Repositories.Interface;
+using Microsoft.EntityFrameworkCore;
 
-namespace qlbb2.Repositories
+namespace qlbb2.Infrastructure.Repositories
 {
     public class SupplierRepository : ISupplierRepository
     {
@@ -16,7 +11,7 @@ namespace qlbb2.Repositories
         {
             _context = context ?? throw new ArgumentNullException(nameof(context), "AppDbContext cannot be null");
         }
-        public Task AddSupplierAsync(Supplier supplier)
+        public Task AddSupplierAsync(TblSupplier supplier)
         {
             throw new NotImplementedException();
         }
@@ -26,7 +21,7 @@ namespace qlbb2.Repositories
             throw new NotImplementedException();
         }
 
-        public async Task<List<Supplier>> GetAllSuppliersAsync()
+        public async Task<List<TblSupplier>> GetAllSuppliersAsync()
         {
             try
             {
@@ -39,17 +34,17 @@ namespace qlbb2.Repositories
                     }
         }
 
-        public Task<Supplier> GetSupplierByIdAsync(int supplierId)
+        public Task<TblSupplier> GetSupplierByIdAsync(int supplierId)
         {
             throw new NotImplementedException();
         }
 
-        public Task<List<Supplier>> SearchAsync(string searchText)
+        public Task<List<TblSupplier>> SearchAsync(string searchText)
         {
             throw new NotImplementedException();
         }
 
-        public Task UpdateSupplierAsync(Supplier supplier)
+        public Task UpdateSupplierAsync(TblSupplier supplier)
         {
             throw new NotImplementedException();
         }

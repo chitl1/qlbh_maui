@@ -1,5 +1,5 @@
 using qlbb2.ViewModels.Users;
-using qlbb2.Entities;
+using qlbb2.Data.Entities;
 using System.Text.Json;
 using System.Web;
 

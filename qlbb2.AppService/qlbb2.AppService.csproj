@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\qlbb2.Data\qlbb2.Data.csproj" />
+    <ProjectReference Include="..\qlbb2.Infrastructure\qlbb2.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

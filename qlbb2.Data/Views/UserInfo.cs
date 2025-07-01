@@ -1,4 +1,5 @@
-﻿namespace qlbb2.Model
+﻿
+namespace qlbb2.Data.Views
 {
     public class UserInfo
     {

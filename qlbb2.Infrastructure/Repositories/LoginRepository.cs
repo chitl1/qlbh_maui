@@ -1,14 +1,14 @@
-﻿using qlbb2.Entities;
-using qlbb2.Model;
-using System.Collections.ObjectModel;
+﻿using qlbb2.Data.Entities;
+using qlbb2.Data.Views;
+using qlbb2.Infrastructure.Repositories.Interface;
 
-namespace qlbb2.Repositories
+namespace qlbb2.Infrastructure.Repositories
 {
     public class LoginRepository : ILoginRepository
     {
         private readonly IUserRepository _userRepository;
         private User _currentUser; // Lưu user đang đăng nhập
-        public LoginRepository(IUserRepository userRepository)
+        public LoginRepository( IUserRepository userRepository)
         {
             _userRepository = userRepository;
         }
@@ -41,5 +41,6 @@ namespace qlbb2.Repositories
         {
             _currentUser = null;
         }
+
     }
 }

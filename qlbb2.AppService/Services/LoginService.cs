@@ -1,7 +1,8 @@
-﻿using qlbb2.Model;
-using qlbb2.Repositories;
+﻿using qlbb2.AppService.Services.Interface;
+using qlbb2.Data.Views;
+using qlbb2.Infrastructure.Repositories.Interface;
 
-namespace qlbb2.Services
+namespace qlbb2.AppService.Services
 {
     public class LoginService : ILoginService
     {

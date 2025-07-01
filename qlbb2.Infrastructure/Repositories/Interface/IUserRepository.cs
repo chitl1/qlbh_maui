@@ -1,6 +1,8 @@
-﻿using qlbb2.Entities;
+﻿
+using qlbb2.Data.Entities;
 
-namespace qlbb2.Repositories
+
+namespace qlbb2.Infrastructure.Repositories.Interface
 {
     public interface IUserRepository
     {

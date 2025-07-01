@@ -1,5 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using qlbb2.Services;
+using qlbb2.AppService.Services.Interface;
+using qlbb2.Data.Entities;
+
+
 
 namespace qlbb2.ViewModels.Supplier
 {
@@ -7,7 +10,7 @@ namespace qlbb2.ViewModels.Supplier
     {
         private readonly ISupplierService _supplierService;
         [ObservableProperty]
-        private List<Entities.Supplier> _suppliers;
+        private List<TblSupplier> _suppliers;
         public SupplierViewModel(ISupplierService supplierService)
         {
             _supplierService = supplierService ?? throw new ArgumentNullException(nameof(supplierService));

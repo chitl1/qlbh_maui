@@ -1,10 +1,8 @@
-﻿
+﻿using qlbb2.Data.Views;
 
-using qlbb2.Model;
-
-namespace qlbb2.Repositories
+namespace qlbb2.AppService.Services.Interface
 {
-    public interface ILoginRepository
+    public interface ILoginService
     {
         Task<UserInfo> LoginAsync(string username, string password);
         bool IsLoggedIn();

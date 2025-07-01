@@ -1,6 +1,5 @@
 ﻿
-
-namespace qlbb2.Entities
+namespace qlbb2.Data.Entities
 {
     public class User
     {

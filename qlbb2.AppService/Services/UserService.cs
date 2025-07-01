@@ -1,8 +1,9 @@
-﻿using qlbb2.Entities;
-using qlbb2.Repositories;
-using System;
+﻿using qlbb2.AppService.Services.Interface;
+using qlbb2.Data.Entities;
+using qlbb2.Infrastructure.Repositories.Interface;
 
-namespace qlbb2.Services
+
+namespace qlbb2.AppService.Services
 {
     public class UserService : IUserService
     {
@@ -13,7 +14,7 @@ namespace qlbb2.Services
         }
         public Task AddPersonAsync(User user)
         {
-           return _userRepository.AddAsync(user);
+            return _userRepository.AddAsync(user);
         }
 
         public async Task DeletePersonAsync(int personId)
@@ -35,6 +36,7 @@ namespace qlbb2.Services
                 // Log the exception or handle it appropriately
                 throw new InvalidOperationException($"Error deleting user with ID {personId}: {ex.Message}", ex);
             }
+
         }
 
         public Task<List<User>> GetDisplayUserAsync()

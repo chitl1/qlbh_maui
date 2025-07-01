@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+using System.ComponentModel.DataAnnotations;
 
-namespace qlbb2.Entities
+namespace qlbb2.Data.Entities
 {
-    public class Supplier
+    public class TblSupplier
     {
         [Key]
         public int SupplierId { get; set; }

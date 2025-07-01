@@ -1,12 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using qlbb2.Entities;
-using qlbb2.Services;
+using qlbb2.Data.Entities;
+using qlbb2.AppService.Services.Interface;
 using System.Collections.ObjectModel;
 using qlbb2.Views;
 using System.Text.Json;
 using System.Web;
-using System.Threading;
+
 
 namespace qlbb2.ViewModels.Users
 {

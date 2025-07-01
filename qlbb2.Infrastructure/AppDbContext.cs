@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using qlbb2.Entities;
+using qlbb2.Data.Entities;
 
-namespace qlbb2.Data
+namespace qlbb2.Infrastructure
 {
     public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-        { 
+        {
             // Đảm bảo database được tạo
             Database.EnsureCreated();
         }
@@ -23,7 +23,7 @@ namespace qlbb2.Data
             });
 
             // Configure Supplier entity
-            modelBuilder.Entity<Supplier>(entity =>
+            modelBuilder.Entity<TblSupplier>(entity =>
             {
                 entity.HasKey(e => e.SupplierId);
                 entity.Property(e => e.SupplierName).IsRequired();
@@ -37,7 +37,8 @@ namespace qlbb2.Data
 
         // Define DbSet properties for your entities
         public DbSet<User> Users { get; set; }
-        public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<TblSupplier> Suppliers { get; set; }
         // Add other DbSet properties as needed
+
     }
 }

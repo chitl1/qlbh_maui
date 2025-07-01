@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using qlbb2.Data;
-using qlbb2.Entities;
-using System;
+using qlbb2.Data.Entities;
+using qlbb2.Infrastructure;
+using qlbb2.Infrastructure.Repositories.Interface;
 
-namespace qlbb2.Repositories
+
+namespace qlbb2.Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {

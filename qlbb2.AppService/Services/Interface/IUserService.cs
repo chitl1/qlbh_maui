@@ -1,8 +1,8 @@
-﻿using qlbb2.Entities;
+﻿using qlbb2.Data.Entities;
 
-namespace qlbb2.Services
+namespace qlbb2.AppService.Services.Interface
 {
-    public interface IUserService 
+    public interface IUserService
     {
         Task<List<User>> GetDisplayUserAsync();
         Task AddPersonAsync(User user);

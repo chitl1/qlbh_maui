@@ -1,14 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using qlbb2.Data;
-using qlbb2.Repositories;
-using qlbb2.Services;
-using qlbb2.ViewModels;
 using qlbb2.ViewModels.Login;
 using qlbb2.ViewModels.Users;
 using qlbb2.Views;
 using qlbb2.Helper;
 using qlbb2.ViewModels.Supplier;
+using qlbb2.AppService.Services.Interface;
+using qlbb2.AppService.Services;
+using qlbb2.Infrastructure.Repositories.Interface;
+using qlbb2.Infrastructure.Repositories;
+using qlbb2.Infrastructure;
+
 
 namespace qlbb2
 {
