@@ -3,6 +3,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="qlbb2.Views.SupplierPage"
              Title="SupplierPage">
+    <Grid RowDefinitions="Auto,*">
+        <!--<HorizontalStackLayout Grid.Row="0" Spacing="10" Padding="10">
+            <Entry x:Name="SearchEntry" Placeholder="Nhập tên user..." Text="{Binding SearchText}"  />
+            <Button Text="Search" Command="{Binding SearchUsersCommand}" />
+            <Button Text="Add"  Command="{Binding AddUserCommand}"/>
+            <Button Text="Clear"  Command="{Binding ClearSearchCommand}"/>
+            <Button Text="Refresh"  Command="{Binding RefreshUsersCommand}"/>
+        </HorizontalStackLayout>-->
+        <CollectionView Grid.Row="1"
+                       ItemsSource="{Binding Users}" 
+                       Margin="10,0,10,10"
+                       VerticalScrollBarVisibility="Always">
+            <CollectionView.Header>
+                <Grid ColumnDefinitions="1*,1*,1*,1*,1*" Padding="10" BackgroundColor="AliceBlue">
+                    <Label Text="SupplierId" Grid.Column="0" FontAttributes="Bold" />
+                    <Label Text="SupplierName" Grid.Column="1" FontAttributes="Bold" />
+                    <Label Text="Phone" Grid.Column="2" FontAttributes="Bold" />
+                    <Label Text="Email" Grid.Column="3" FontAttributes="Bold" />
+                    <Label Text="Address" Grid.Column="4" FontAttributes="Bold" />
+                </Grid>
+            </CollectionView.Header>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="2*,2*,3*,Auto,Auto" Padding="10" BackgroundColor="White">
+                        <Label Text="{Binding SupplierId}" Grid.Column="0" />
+                        <Label Text="{Binding SupplierName}" Grid.Column="1" />
+                        <Label Text="{Binding Phone}" Grid.Column="2" />
+                        <Label Text="{Binding Email}" Grid.Column="3" />
+                        <Label Text="{Binding Address}" Grid.Column="4" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 
 
 </ContentPage>

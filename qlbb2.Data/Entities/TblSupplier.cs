@@ -7,7 +7,6 @@ namespace qlbb2.Data.Entities
     {
         [Key]
         public int SupplierId { get; set; }
-        [Required]
         public string SupplierName { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
