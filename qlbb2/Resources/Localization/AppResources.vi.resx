@@ -117,13 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Action" xml:space="preserve">
+    <value>Thao tác</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Thêm</value>
+  </data>
   <data name="AddUserButton" xml:space="preserve">
     <value>Thêm người dùng</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Quản lý bán hàng</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Xóa ô tìm kiếm</value>
+  </data>
+  <data name="DeleteAction" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
+  <data name="EditAction" xml:space="preserve">
+    <value>Sửa</value>
   </data>
   <data name="HelloMessage" xml:space="preserve">
     <value>Xin chào</value>
   </data>
   <data name="Logout" xml:space="preserve">
     <value>Đăng xuất</value>
+  </data>
+  <data name="PlaceholderSearch" xml:space="preserve">
+    <value>Nhập tên người dùng  ...</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Tải lại trang</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Quyền</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Tìm kiếm</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Tên người dùng</value>
   </data>
 </root>

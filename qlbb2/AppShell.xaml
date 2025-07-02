@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:qlbb2.Views"
+    xmlns:helper="clr-namespace:qlbb2.Helper"
     Shell.FlyoutBehavior="Disabled"
     Title="qlbb2">
     <Shell.TitleView>
@@ -14,7 +15,7 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <Label Text="App Title" FontSize="20" VerticalOptions="Center"  Grid.Column="0"/>
+            <Label  Text="{Binding [AppName], Source={x:Static helper:LocalizationResourceManager.Instance}}"  FontSize="20" VerticalOptions="Center"  Grid.Column="0"/>
 
             <!-- Picker chọn ngôn ngữ -->
             <Picker
@@ -28,7 +29,9 @@
                 <Label Text="{Binding CurrentUserRole}" FontSize="14" VerticalOptions="Center"/>
             </VerticalStackLayout>
             <!-- Logout button -->
-            <Button  Grid.Column="3" Text="Logout" Command="{Binding LogoutCommand}"/>
+            <Button  Grid.Column="3" 
+                     Text="{Binding [Logout], Source={x:Static helper:LocalizationResourceManager.Instance}}" 
+                     Command="{Binding LogoutCommand}"/>
         </Grid>
     </Shell.TitleView>
 

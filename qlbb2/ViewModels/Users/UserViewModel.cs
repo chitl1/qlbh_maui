@@ -32,12 +32,6 @@ namespace qlbb2.ViewModels.Users
         {
             await LoadUsersAsync();
         }
-        [RelayCommand]
-        private void ChangeLanguage()
-        {
-            LocalizationResourceManager.Instance.SetCulture(new CultureInfo("vi"));
-            // hoặc "en", "ja", ...
-        }
         public async Task LoadUsersAsync()
         {
             try
@@ -61,18 +55,6 @@ namespace qlbb2.ViewModels.Users
             await LoadUsersAsync();
         }
 
-        //[RelayCommand]
-        //private async void OnSearchTextChanged(string searchText)
-        //{
-        //    if (string.IsNullOrWhiteSpace(searchText))
-        //    {
-        //        LoadUsers();
-        //    }
-        //    else
-        //    {
-        //        SearchUsers();
-        //    }
-        //}
         [RelayCommand]
         private async void SearchUsers()
         {
