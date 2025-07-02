@@ -7,13 +7,14 @@
     Shell.FlyoutBehavior="Disabled"
     Title="qlbb2">
     <Shell.TitleView>
-        <Grid Padding="10" ColumnSpacing="10">
+        <Grid Padding="0" ColumnSpacing="20">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <Label Text="App Title" FontSize="20" VerticalOptions="Center" />
+            <Label Text="App Title" FontSize="20" VerticalOptions="Center"  Grid.Column="0"/>
 
             <!-- Picker chọn ngôn ngữ -->
             <Picker
@@ -22,9 +23,12 @@
             SelectedItem="{Binding SelectedLanguage}"
             WidthRequest="120"
             />
-
+            <VerticalStackLayout Grid.Column="2">
+                <Label Text="{Binding CurrentUserName}" FontSize="16" VerticalOptions="Center"/>
+                <Label Text="{Binding CurrentUserRole}" FontSize="14" VerticalOptions="Center"/>
+            </VerticalStackLayout>
             <!-- Logout button -->
-            <Button  Grid.Column="2" Text="Logout" Command="{Binding LogoutCommand}"/>
+            <Button  Grid.Column="3" Text="Logout" Command="{Binding LogoutCommand}"/>
         </Grid>
     </Shell.TitleView>
 

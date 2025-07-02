@@ -17,10 +17,16 @@ namespace qlbb2.ViewModels
 
         [ObservableProperty]
         private string selectedLanguage;
+        [ObservableProperty]
+        private string currentUserRole;
+        [ObservableProperty]
+        private string currentUserName;
         public ShellViewModel(LocalizationResourceManager loc)
         {
             _loc = loc;
             SelectedLanguage = Languages.First();
+            CurrentUserRole = Preferences.Get("UserRole", "Khách");
+            CurrentUserName = Preferences.Get("UserName", "Khách");
         }
         partial void OnSelectedLanguageChanged(string value)
         {
