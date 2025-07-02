@@ -6,6 +6,8 @@ using System.Collections.ObjectModel;
 using qlbb2.Views;
 using System.Text.Json;
 using System.Web;
+using qlbb2.Helper;
+using System.Globalization;
 
 
 namespace qlbb2.ViewModels.Users
@@ -30,7 +32,12 @@ namespace qlbb2.ViewModels.Users
         {
             await LoadUsersAsync();
         }
-        
+        [RelayCommand]
+        private void ChangeLanguage()
+        {
+            LocalizationResourceManager.Instance.SetCulture(new CultureInfo("vi"));
+            // hoặc "en", "ja", ...
+        }
         public async Task LoadUsersAsync()
         {
             try

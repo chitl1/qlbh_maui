@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="qlbb2.Views.UserPage"
              x:Name="UserPageRoot"
+             xmlns:helper="clr-namespace:qlbb2.Helper"
              Title="UserPage">
     <Grid RowDefinitions="Auto,*">
         <HorizontalStackLayout Grid.Row="0" Spacing="10" Padding="10">
@@ -11,7 +12,9 @@
             <Button Text="Add"  Command="{Binding AddUserCommand}"/>
             <Button Text="Clear"  Command="{Binding ClearSearchCommand}"/>
             <Button Text="Refresh"  Command="{Binding RefreshUsersCommand}"/>
-            <!--<Button Text="Add" Clicked="AddUserButton_Clicked"/>-->
+            <Label Text="{Binding [HelloMessage], Source={x:Static helper:LocalizationResourceManager.Instance}}" />
+            <Button Text="{Binding [AddUserButton], Source={x:Static helper:LocalizationResourceManager.Instance}}" />
+            <Button Text="đổi ngôn ngữ" Command="{Binding ChangeLanguageCommand}"/>
         </HorizontalStackLayout>
         <CollectionView Grid.Row="1"
                        ItemsSource="{Binding Users}" 

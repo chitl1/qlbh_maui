@@ -58,6 +58,7 @@ namespace qlbb2
             builder.Services.AddTransient<EditUserPage>();
             builder.Services.AddTransient<SupplierPage>();
 
+            builder.Services.AddSingleton(LocalizationResourceManager.Instance);
             var app = builder.Build();
             ServiceHelper.ServiceProvider = app.Services;
             return app;
