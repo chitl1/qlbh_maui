@@ -6,14 +6,29 @@
     xmlns:local="clr-namespace:qlbb2.Views"
     Shell.FlyoutBehavior="Disabled"
     Title="qlbb2">
-    <!--<ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />-->
+    <Shell.TitleView>
+        <Grid Padding="10" ColumnSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Label Text="App Title" FontSize="20" VerticalOptions="Center" />
+
+            <!-- Picker chọn ngôn ngữ -->
+            <Picker
+            Grid.Column="1"
+            ItemsSource="{Binding Languages}"
+            SelectedItem="{Binding SelectedLanguage}"
+            WidthRequest="120"
+            />
+
+            <!-- Logout button -->
+            <Button  Grid.Column="2" Text="Logout" Command="{Binding LogoutCommand}"/>
+        </Grid>
+    </Shell.TitleView>
 
     <TabBar>
-        <ShellContent
-            Title="Home"
-            x:Name="HomeTab"
-            ContentTemplate="{DataTemplate local:MainPage}"
-            Route="MainPage" />
         <ShellContent
             Title="UserPage"
             x:Name="UserTab"
@@ -31,5 +46,4 @@
              ContentTemplate="{DataTemplate local:ReportPage}"
              Route="ReportPage" />
     </TabBar>
-
 </Shell>

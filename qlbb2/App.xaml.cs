@@ -1,6 +1,7 @@
 ﻿using qlbb2.Views;
 using qlbb2.ViewModels.Login;
 using qlbb2.Helper;
+using System.Globalization;
 
 namespace qlbb2
 {
@@ -9,6 +10,8 @@ namespace qlbb2
         public App()
         {
             InitializeComponent();
+            // Đặt ngôn ngữ mặc định là tiếng Anh
+            LocalizationResourceManager.Instance.SetCulture(new CultureInfo("en"));
 
             // Kiểm tra trạng thái đăng nhập
             var role = Preferences.Get("UserRole", string.Empty);
@@ -21,7 +24,8 @@ namespace qlbb2
             }
             else
             {
-                MainPage = new AppShell();
+                // Resolve AppShell from DI to satisfy constructor dependency
+                MainPage = ServiceHelper.GetService<AppShell>();
             }
         }
     }

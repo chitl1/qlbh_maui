@@ -12,7 +12,7 @@
             <Button Text="Refresh"  Command="{Binding RefreshUsersCommand}"/>
         </HorizontalStackLayout>-->
         <CollectionView Grid.Row="1"
-                       ItemsSource="{Binding Users}" 
+                       ItemsSource="{Binding Suppliers}" 
                        Margin="10,0,10,10"
                        VerticalScrollBarVisibility="Always">
             <CollectionView.Header>

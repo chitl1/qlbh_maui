@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using qlbb2.AppService.Services.Interface;
 using qlbb2.Views;
 using qlbb2.Data.Views;
+using qlbb2.Helper;
 
 namespace qlbb2.ViewModels.Login
 {
@@ -41,7 +42,7 @@ namespace qlbb2.ViewModels.Login
                 Preferences.Set("UserName", result.UserName);
 
                 await App.Current.MainPage.DisplayAlert("Success", $"Welcome {Username}!", "OK");
-                Application.Current.MainPage = new AppShell();
+                Application.Current.MainPage = ServiceHelper.GetService<AppShell>();
 
             }
             catch (Exception ex)
