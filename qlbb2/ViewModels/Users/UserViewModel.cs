@@ -28,10 +28,6 @@ namespace qlbb2.ViewModels.Users
             LoadUsers();
         }
         [RelayCommand]
-        private async Task RefreshUsers()
-        {
-            await LoadUsersAsync();
-        }
         public async Task LoadUsersAsync()
         {
             try
@@ -49,12 +45,10 @@ namespace qlbb2.ViewModels.Users
                 await App.Current.MainPage.DisplayAlert("Error", $"Failed to load users: {ex.Message}", "OK");
             }
         }
-        
         public async void LoadUsers()
         {
             await LoadUsersAsync();
         }
-
         [RelayCommand]
         private async void SearchUsers()
         {

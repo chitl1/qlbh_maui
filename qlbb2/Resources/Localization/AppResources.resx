@@ -129,6 +129,9 @@
   <data name="AppName" xml:space="preserve">
     <value>Sales Management</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
   <data name="Clear" xml:space="preserve">
     <value>Clear</value>
   </data>
@@ -143,6 +146,18 @@
   </data>
   <data name="Logout" xml:space="preserve">
     <value>Logout</value>
+  </data>
+  <data name="PhrAddress" xml:space="preserve">
+    <value>Enter address ...</value>
+  </data>
+  <data name="PhrEmail" xml:space="preserve">
+    <value>Enter email ...</value>
+  </data>
+  <data name="PhrPhone" xml:space="preserve">
+    <value>Enter phone ...</value>
+  </data>
+  <data name="PhrSupplierName" xml:space="preserve">
+    <value>Enter supplier name ...</value>
   </data>
   <data name="PlaceholderSearch" xml:space="preserve">
     <value>Enter user name ...</value>

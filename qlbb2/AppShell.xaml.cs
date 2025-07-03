@@ -18,6 +18,8 @@ namespace qlbb2
             Routing.RegisterRoute(nameof(AddUserPage), typeof(AddUserPage));
             Routing.RegisterRoute(nameof(EditUserPage), typeof(EditUserPage));
             Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
+            Routing.RegisterRoute(nameof(SupplierPage), typeof(SupplierPage));
+            Routing.RegisterRoute(nameof(AddSupplierPage), typeof(AddSupplierPage));
         }
     }
 }

@@ -54,6 +54,9 @@ namespace qlbb2
             builder.Services.AddTransient<LoginViewModel>();
             builder.Services.AddTransient<EditUserViewModel>();
             builder.Services.AddTransient<SupplierViewModel>();
+            builder.Services.AddTransient<AddSupplierViewModel>();
+            //builder.Services.AddTransient<MainPage>();
+            builder.Services.AddTransient<AddSupplierPage>();
             builder.Services.AddTransient<UserPage>();
             builder.Services.AddTransient<AddUserPage>();
             builder.Services.AddTransient<LoginPage>();

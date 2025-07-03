@@ -11,4 +11,9 @@ public partial class SupplierPage : ContentPage
 		_vm = vm;
 		BindingContext = _vm;
 	}
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        _vm.LoadSuppliersAsync();
+    }
 }

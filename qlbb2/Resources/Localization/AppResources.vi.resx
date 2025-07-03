@@ -129,6 +129,9 @@
   <data name="AppName" xml:space="preserve">
     <value>Quản lý bán hàng</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Hủy</value>
+  </data>
   <data name="Clear" xml:space="preserve">
     <value>Xóa ô tìm kiếm</value>
   </data>
@@ -143,6 +146,18 @@
   </data>
   <data name="Logout" xml:space="preserve">
     <value>Đăng xuất</value>
+  </data>
+  <data name="PhrAddress" xml:space="preserve">
+    <value>Nhập address ...</value>
+  </data>
+  <data name="PhrEmail" xml:space="preserve">
+    <value>Nhập email ...</value>
+  </data>
+  <data name="PhrPhone" xml:space="preserve">
+    <value>Nhập phone ...</value>
+  </data>
+  <data name="PhrSupplierName" xml:space="preserve">
+    <value>Nhập supplier name ...</value>
   </data>
   <data name="PlaceholderSearch" xml:space="preserve">
     <value>Nhập tên người dùng  ...</value>

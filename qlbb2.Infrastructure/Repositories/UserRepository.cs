@@ -34,7 +34,11 @@ namespace qlbb2.Infrastructure.Repositories
 
         public async Task<User> GetByIdAsync(int id)
         {
-            return await _context.Users.FindAsync(id);
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
+                throw new KeyNotFoundException($"User with ID {id} not found.");
+
+            return user;
         }
 
         public Task<List<User>> SearchAsync(string searchText)

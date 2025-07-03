@@ -11,34 +11,48 @@ namespace qlbb2.AppService.Services
         {
             _supplierRepository = supplierRepository;
         }
-        public Task AddSupplierAsync(TblSupplier supplier)
+        public Task AddAsync(TblSupplier supplier)
         {
-            throw new NotImplementedException();
+            return _supplierRepository.AddAsync(supplier);
         }
 
-        public Task DeleteSupplierAsync(int supplierId)
+        public async Task DeleteAsync(int supplierId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var supplier = await _supplierRepository.GetByIdAsync(supplierId);
+                if(supplier != null)
+                {
+                    await _supplierRepository.DeleteAsync(supplier);
+                }
+                else
+                {
+                    throw new InvalidOperationException($"Supplier with ID {supplierId} not found.");
+                }
+            }
+            catch (Exception ex) {
+                  // Log the exception or handle it appropriately
+                throw new InvalidOperationException($"Error deleting supplier with ID {supplierId}: {ex.Message}", ex);
+            }
         }
 
-        public Task<List<TblSupplier>> GetAllSuppliersAsync()
+        public Task<List<TblSupplier>> GetAllAsync()
         {
-            return _supplierRepository.GetAllSuppliersAsync();
-        }
-
-        public Task<TblSupplier> GetSupplierByIdAsync(int supplierId)
-        {
-            throw new NotImplementedException();
+            return _supplierRepository.GetAllAsync();
         }
 
         public Task<List<TblSupplier>> SearchAsync(string searchText)
         {
-            throw new NotImplementedException();
+            return _supplierRepository.SearchAsync(searchText);
         }
 
-        public Task UpdateSupplierAsync(TblSupplier supplier)
+        public Task UpdateAsync(TblSupplier supplier)
         {
-            throw new NotImplementedException();
+            if (supplier == null)
+            {
+                throw new ArgumentNullException(nameof(supplier), "Supplier cannot be null");
+            }
+            return _supplierRepository.UpdateAsync(supplier);
         }
     }
 }

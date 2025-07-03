@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="qlbb2.Views.AddSupplierPage"
+             xmlns:helper="clr-namespace:qlbb2.Helper"
+             Title="AddSupplierPage">
+    <VerticalStackLayout>
+        <Entry x:Name="SupplierNameEntry" 
+               Placeholder="{Binding [PhrSupplierName], Source={x:Static helper:LocalizationResourceManager.Instance}}" 
+               Text="{Binding SupplierName}" />
+        <Entry x:Name="PhoneEntry" 
+               Placeholder="{Binding [PhrPhone], Source={x:Static helper:LocalizationResourceManager.Instance}}" 
+               Text="{Binding Phone}" />
+        <Entry x:Name="EmailEntry" 
+               Placeholder="{Binding [PhrEmail], Source={x:Static helper:LocalizationResourceManager.Instance}}" 
+               Text="{Binding Email}" />
+        <Entry x:Name="AddressEntry" 
+               Placeholder="{Binding [PhrAddress], Source={x:Static helper:LocalizationResourceManager.Instance}}" 
+               Text="{Binding Address}" />
+        <HorizontalStackLayout>
+            <Button  Text="{Binding [Add], Source={x:Static helper:LocalizationResourceManager.Instance}}" Command="{Binding AddSupplierCommand}"/>
+            <Button  Text="{Binding [Cancel], Source={x:Static helper:LocalizationResourceManager.Instance}}" Command="{Binding CancelCommand}"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

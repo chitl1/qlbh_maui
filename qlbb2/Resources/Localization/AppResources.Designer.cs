@@ -97,6 +97,15 @@ namespace qlbb2.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clear.
         /// </summary>
         internal static string Clear {
@@ -138,6 +147,42 @@ namespace qlbb2.Resources.Localization {
         internal static string Logout {
             get {
                 return ResourceManager.GetString("Logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter address ....
+        /// </summary>
+        internal static string PhrAddress {
+            get {
+                return ResourceManager.GetString("PhrAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter email ....
+        /// </summary>
+        internal static string PhrEmail {
+            get {
+                return ResourceManager.GetString("PhrEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter phone ....
+        /// </summary>
+        internal static string PhrPhone {
+            get {
+                return ResourceManager.GetString("PhrPhone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter supplier name ....
+        /// </summary>
+        internal static string PhrSupplierName {
+            get {
+                return ResourceManager.GetString("PhrSupplierName", resourceCulture);
             }
         }
         
