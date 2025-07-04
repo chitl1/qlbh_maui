@@ -22,6 +22,15 @@ namespace qlbb2.Infrastructure
                 entity.Property(e => e.Role).IsRequired();
             });
 
+            // Seed default admin user
+            modelBuilder.Entity<User>().HasData(new User
+            {
+                UserId = 1,
+                UserName = "admin",
+                Password = "123", // Nên hash mật khẩu nếu dùng thực tế
+                Role = "Admin"
+            });
+
             // Configure Supplier entity
             modelBuilder.Entity<TblSupplier>(entity =>
             {
