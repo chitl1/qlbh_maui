@@ -24,21 +24,53 @@
                 </Grid>
             </CollectionView.Header>
             <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid ColumnDefinitions="2*,3*,Auto" Padding="10" BackgroundColor="White">
-                        <Label Text="{Binding UserName}" Grid.Column="0" />
-                        <Label Text="{Binding Role}" Grid.Column="1" />
-                        <HorizontalStackLayout Grid.Column="2">
-                            <Button Text="{Binding [EditAction], Source={x:Static helper:LocalizationResourceManager.Instance}}"
-                             Command="{Binding Source={x:Reference UserPageRoot}, Path=BindingContext.EditUserCommand}"
-                             CommandParameter="{Binding .}" />
-                            <Button Text="{Binding [DeleteAction], Source={x:Static helper:LocalizationResourceManager.Instance}}"
-                              Command="{Binding Source={x:Reference UserPageRoot}, Path=BindingContext.DeleteUserCommand}"
-                              CommandParameter="{Binding .}" />
-                        </HorizontalStackLayout>
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
+    <DataTemplate>
+        <SwipeView>
+            <SwipeView.RightItems>
+                <SwipeItems>
+                    <SwipeItem
+                        Text="Xóa"
+                        BackgroundColor="Red"
+                        Command="{Binding Source={x:Reference UserPageRoot}, Path=BindingContext.DeleteUserCommand}"
+                        CommandParameter="{Binding .}" />
+                </SwipeItems>
+            </SwipeView.RightItems>
+            <Grid Padding="10" BackgroundColor="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!-- Avatar/UserName viết tắt -->
+                <Frame Grid.Column="0"
+                       HeightRequest="48" WidthRequest="48"
+                       CornerRadius="24"
+                       BackgroundColor="#1976D2"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center">
+                    <Label Text="{Binding UserName, Converter={StaticResource FirstCharConverter}}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           TextColor="White"
+                           FontSize="22"
+                           FontAttributes="Bold"/>
+                </Frame>
+                <!-- Thông tin User -->
+                <VerticalStackLayout Grid.Column="1" Padding="10,0" Spacing="2">
+                    <Label Text="{Binding UserName}" FontAttributes="Bold" FontSize="16" TextColor="#0D47A1"/>
+                    <Label Text="{Binding Password}" FontSize="13" TextColor="#263238"/>
+                    <Label Text="{Binding Role}" FontSize="13" TextColor="#1976D2"/>
+                </VerticalStackLayout>
+                <!-- Tap để edit -->
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding Source={x:Reference UserPageRoot}, Path=BindingContext.EditUserCommand}"
+                        CommandParameter="{Binding .}" />
+                </Grid.GestureRecognizers>
+            </Grid>
+        </SwipeView>
+    </DataTemplate>
+</CollectionView.ItemTemplate>
+
         </CollectionView>
     </Grid>
 </ContentPage>
