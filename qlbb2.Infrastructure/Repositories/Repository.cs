@@ -37,7 +37,7 @@ namespace qlbb2.Infrastructure.Repositories
             return result;
         }
 
-        public async Task<List<T>> SearchAsync(string searchText)
+        public virtual async Task<List<T>> SearchAsync(string searchText)
         {
             try
             {
