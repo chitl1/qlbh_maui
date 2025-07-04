@@ -9,5 +9,6 @@ namespace qlbb2.AppService.Services.Interface
         Task UpdateAsync(TblSupplier supplier);
         Task DeleteAsync(int supplierId);
         Task<List<TblSupplier>> SearchAsync(string searchText);
+        Task<TblSupplier> GetByIdAsync(int id);
     }
 }

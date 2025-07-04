@@ -5,8 +5,8 @@ using qlbb2.AppService.Services.Interface;
 using qlbb2.Data.Entities;
 using qlbb2.Views;
 using System.Collections.ObjectModel;
-
-
+using System.Text.Json;
+using System.Web;
 
 namespace qlbb2.ViewModels.Supplier
 {
@@ -54,13 +54,22 @@ namespace qlbb2.ViewModels.Supplier
         [RelayCommand]
         private async void SearchSupplier()
         {
-            if (string.IsNullOrWhiteSpace(SearchText))
+            try
             {
-                LoadSuppliersAsync();
-            }
+                if (string.IsNullOrWhiteSpace(SearchText))
+                {
+                    LoadSuppliersAsync();
+                }
 
-            var filteredSuppliers = await _supplierService.SearchAsync(SearchText);
-            Suppliers = new List<TblSupplier>(filteredSuppliers);
+                var filteredSuppliers = await _supplierService.SearchAsync(SearchText);
+                Suppliers = new List<TblSupplier>(filteredSuppliers);
+
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions, e.g., log them or show a message to the user
+                Console.WriteLine($"Error searching suppliers: {ex.Message}");
+            }
         }
         [RelayCommand]
         private async void ClearSearch()
@@ -69,5 +78,38 @@ namespace qlbb2.ViewModels.Supplier
             LoadSuppliersAsync();
         }
 
+        [RelayCommand]
+        private async void EditSupplier(TblSupplier supplier)
+        {
+            try
+            {
+                if (supplier == null) return;
+                var supplierJson = JsonSerializer.Serialize(supplier);
+                var encodedSupplier = HttpUtility.UrlEncode(supplierJson);
+                await Shell.Current.GoToAsync($"{nameof(EditSupplierPage)}?Supplier={encodedSupplier}");
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions, e.g., log them or show a message to the user
+                Console.WriteLine($"Error navigating to EditSupplierPage: {ex.Message}");
+            }
+        }
+        [RelayCommand]
+        private async void DeleteSupplier(TblSupplier supplier)
+        {
+            try
+            {
+                if (supplier == null) return;
+                bool confirm = await App.Current.MainPage.DisplayAlert("Confirm Delete", "Are you sure you want to delete this supplier?", "Yes", "No");
+                if (!confirm) return;
+                await _supplierService.DeleteAsync(supplier.SupplierId);
+                LoadSuppliersAsync();
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions, e.g., log them or show a message to the user
+                Console.WriteLine($"Error deleting supplier: {ex.Message}");
+            }
+        }
     }
 }

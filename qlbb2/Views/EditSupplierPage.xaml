@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="qlbb2.Views.EditSupplierPage"
+             Title="EditSupplierPage">
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <Label Text="Edit Supplier" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" />
+        <Entry Placeholder="Supplier Name" Text="{Binding SupplierName}" />
+        <Entry Placeholder="Phone" Text="{Binding Phone}" />
+        <Entry Placeholder="Email" Text="{Binding Email}" />
+        <Entry Placeholder="Address" Text="{Binding Address}" />
+        <Button Text="Save" Command="{Binding SaveCommand}" />
+    </VerticalStackLayout>
+</ContentPage>

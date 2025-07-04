@@ -39,10 +39,18 @@ namespace qlbb2.Infrastructure.Repositories
 
         public async Task<List<T>> SearchAsync(string searchText)
         {
-            var result = await _context.Set<T>()
+            try
+            {
+                var result = await _context.Set<T>()
                 .Where(e => EF.Functions.Like(e.ToString(), $"%{searchText}%"))
                 .ToListAsync();
-            return result;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                // Log the exception or handle it as needed
+                throw new Exception($"An error occurred while searching for entities: {ex.Message}", ex);
+            }
         }
 
         public async Task UpdateAsync(T entity)

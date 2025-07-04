@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="qlbb2.Views.SupplierPage"
              xmlns:helper="clr-namespace:qlbb2.Helper"
+             x:Name="SupplierPageRoot"
              Title="SupplierPage">
     <Grid RowDefinitions="Auto,*">
         <HorizontalStackLayout Grid.Row="0" Spacing="10" Padding="10">
@@ -19,22 +20,33 @@
                        Margin="10,0,10,10"
                        VerticalScrollBarVisibility="Always">
             <CollectionView.Header>
-                <Grid ColumnDefinitions="1*,1*,1*,1*,1*" Padding="10" BackgroundColor="AliceBlue">
+                <Grid ColumnDefinitions="1*,1*,1*,1*,1*,1*" Padding="10" BackgroundColor="AliceBlue">
                     <Label Text="SupplierId" Grid.Column="0" FontAttributes="Bold" />
                     <Label Text="SupplierName" Grid.Column="1" FontAttributes="Bold" />
                     <Label Text="Phone" Grid.Column="2" FontAttributes="Bold" />
                     <Label Text="Email" Grid.Column="3" FontAttributes="Bold" />
                     <Label Text="Address" Grid.Column="4" FontAttributes="Bold" />
+                    <Label  Grid.Column="5" 
+                            Text="{Binding [Action], Source={x:Static helper:LocalizationResourceManager.Instance}}"
+                            FontAttributes="Bold" />
                 </Grid>
             </CollectionView.Header>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid ColumnDefinitions="1*,1*,1*,1*,1*"  Padding="10" BackgroundColor="White">
+                    <Grid ColumnDefinitions="1*,1*,1*,1*,1*,1*"  Padding="10" BackgroundColor="White">
                         <Label Text="{Binding SupplierId}" Grid.Column="0" />
                         <Label Text="{Binding SupplierName}" Grid.Column="1" />
                         <Label Text="{Binding Phone}" Grid.Column="2" />
                         <Label Text="{Binding Email}" Grid.Column="3" />
                         <Label Text="{Binding Address}" Grid.Column="4" />
+                        <HorizontalStackLayout Grid.Column="5">
+                            <Button Text="{Binding [EditAction], Source={x:Static helper:LocalizationResourceManager.Instance}}"
+                                  Command="{Binding Source={x:Reference SupplierPageRoot}, Path=BindingContext.EditSupplierCommand}"
+                                  CommandParameter="{Binding .}" />
+                            <Button Text="{Binding [DeleteAction], Source={x:Static helper:LocalizationResourceManager.Instance}}"
+                                Command="{Binding Source={x:Reference SupplierPageRoot}, Path=BindingContext.DeleteSupplierCommand}"
+                                CommandParameter="{Binding .}" />
+                        </HorizontalStackLayout>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
