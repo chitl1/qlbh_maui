@@ -1,16 +1,74 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="qlbb2.Views.LoginPage"
-             Title="LoginPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Đăng nhập"
-            FontSize="24"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Entry Placeholder="Username"  Text="{Binding Username}" />
-        <Entry Placeholder="Password" Text="{Binding Password}"/>
-        <Button Text="Đăng nhập" Command="{Binding LoginCommand}"/>
-    </VerticalStackLayout>
+x:Class="qlbb2.Views.LoginPage"
+             Title="LoginPage"
+             
+             BackgroundColor="Transparent">
+
+    <Grid>
+        <!-- Gradient background -->
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#4F8CFF" Offset="0.0" />
+                <GradientStop Color="#1CB5E0" Offset="1.0" />
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <!-- Bỏ Frame, chỉ giữ lại layout nội dung -->
+        <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center" HorizontalOptions="Center">
+            <!-- Logo -->
+            <Image Source="shop_logo.png" HeightRequest="80" HorizontalOptions="Center"/>
+            
+            <!-- Title -->
+            <Label Text="Sign in"
+                   FontSize="{OnPlatform Android=28, iOS=28, WinUI=34}"
+                   FontAttributes="Bold"
+                   TextColor="#0D47A1"  
+                   HorizontalOptions="Center"/>
+            <Label Text="Please sign-up to create account"
+                   FontSize="14"
+                   TextColor="#263238"  
+                   HorizontalOptions="Center"/>
+
+            <!-- Username -->
+            <Frame CornerRadius="10" BorderColor="#E0E0E0" Padding="4" HasShadow="False" BackgroundColor="Transparent">
+                <Entry Placeholder="User name" Text="{Binding Username}" 
+                       BackgroundColor="#F0F4F8" HeightRequest="44"
+                       TextColor="#111111" />
+            </Frame>
+
+            <!-- Password -->
+            <Frame CornerRadius="10" BorderColor="#E0E0E0" Padding="4" HasShadow="False" BackgroundColor="Transparent">
+                <Entry Placeholder="Password" Text="{Binding Password}"
+                       IsPassword="True" BackgroundColor="#F0F4F8" HeightRequest="44"
+                       TextColor="#111111" />
+            </Frame>
+
+            <!-- Forgot password -->
+            <Label Text="Forgot Password?" FontSize="12" TextColor="#1565C0" HorizontalOptions="End"/>
+
+            <!-- Social login icons -->
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="16">
+                <Image Source="facebook_icon.png" HeightRequest="32"/>
+                <Image Source="google_icon.png" HeightRequest="32"/>
+                <Image Source="twitter_icon.png" HeightRequest="32"/>
+            </HorizontalStackLayout>
+
+            <!-- Login button -->
+            <Button Text="Continue" 
+                    BackgroundColor="#1976D2" 
+                    TextColor="White" 
+                    CornerRadius="20"
+                    FontSize="18"
+                    HeightRequest="48"
+                    Command="{Binding LoginCommand}"/>
+
+            <!-- Sign up link -->
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Don't have an account?" FontSize="13" TextColor="#263238"/>
+                <Label Text=" Sign Up" FontSize="13" TextColor="#1565C0" FontAttributes="Bold"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>
