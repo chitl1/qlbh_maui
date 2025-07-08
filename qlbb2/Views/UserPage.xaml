@@ -4,15 +4,18 @@
              x:Class="qlbb2.Views.UserPage"
              x:Name="UserPageRoot"
              xmlns:helper="clr-namespace:qlbb2.Helper"
-             Title="UserPage">
+             Title="User Management">
     <Grid RowDefinitions="Auto,*">
-        <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Padding="10">
+        
+        <!-- Search and Add Button Row -->
+        <Grid Grid.Row="0" ColumnDefinitions="*,1*" Padding="10">
             <SearchBar Grid.Column="0"
                        x:Name="SearchBar" 
                        Placeholder="{Binding [PlaceholderSearch], Source={x:Static helper:LocalizationResourceManager.Instance}}" 
                        Text="{Binding SearchText}"
                        TextChanged="OnSearchTextChanged"
-                       HorizontalOptions="Start" />
+                       HorizontalOptions="Start" 
+                       />
             <Button Grid.Column="1"
                     Text="+"
                     FontSize="24"
@@ -20,19 +23,21 @@
                     WidthRequest="50"
                     HeightRequest="50"
                     CornerRadius="25"
-                    BackgroundColor="#1976D2"
+                    BackgroundColor="Green"
                     TextColor="White"
                     Command="{Binding AddUserCommand}"
                     HorizontalOptions="End"
                     Margin="10,0,0,0" />
         </Grid>
         
+        <!-- Loading Indicator -->
         <Grid Grid.Row="1" IsVisible="{Binding IsLoading}">
             <ActivityIndicator IsRunning="True" IsVisible="True" HorizontalOptions="Center" VerticalOptions="Center" />
             <Label Text="Loading users..." HorizontalOptions="Center" VerticalOptions="Center" Margin="0,50,0,0" />
         </Grid>
         
-        <CollectionView Grid.Row="1"
+        <!-- Users List -->
+        <CollectionView Grid.Row="2"
                        ItemsSource="{Binding Users}" 
                        Margin="10,0,10,10"
                        VerticalScrollBarVisibility="Always"
@@ -65,7 +70,7 @@
                             <Frame Grid.Column="0"
                                    HeightRequest="48" WidthRequest="48"
                                    CornerRadius="24"
-                                   BackgroundColor="#1976D2"
+                                   BackgroundColor="Green"
                                    VerticalOptions="Center"
                                    HorizontalOptions="Center">
                                 <Label Text="{Binding UserName, Converter={StaticResource FirstCharConverter}}"
@@ -77,9 +82,9 @@
                             </Frame>
                             <!-- Thông tin User -->
                             <VerticalStackLayout Grid.Column="1" Padding="10,0" Spacing="2">
-                                <Label Text="{Binding UserName}" FontAttributes="Bold" FontSize="16" TextColor="#0D47A1"/>
+                                <Label Text="{Binding UserName}" FontAttributes="Bold" FontSize="16" TextColor="Green"/>
                                 <Label Text="{Binding Password}" FontSize="13" TextColor="#263238"/>
-                                <Label Text="{Binding Role}" FontSize="13" TextColor="#1976D2"/>
+                                <Label Text="{Binding Role}" FontSize="13" TextColor="Green"/>
                             </VerticalStackLayout>
                             <!-- Tap để edit -->
                             <Grid.GestureRecognizers>

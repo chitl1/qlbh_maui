@@ -2,25 +2,37 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="qlbb2.Views.AddUserPage"
-             BackgroundColor="#80000000" 
-             Padding="40">
-    <Frame BackgroundColor="White"
-         Padding="20"
-         CornerRadius="10"
-         VerticalOptions="Center"
-         HorizontalOptions="Center">
-        <VerticalStackLayout Spacing="10">
-            <Entry x:Name="UsernameEntry" Placeholder="Username" Text="{Binding UserName}" />
-            <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" Text="{Binding Password}"/>
-            <Picker x:Name="RolePicker" Title="Role"
-                    ItemsSource="{Binding Roles}"
-                    SelectedItem="{Binding SelectedRole}"
-                    />
+             Title="Add User">
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="20">
 
-            <HorizontalStackLayout>
-                <Button Text="Hủy" Command="{Binding CancelCommand}"/>
-                <Button Text="Thêm" Command="{Binding AddUserCommand}"/>
+            <Frame Padding="20" BorderColor="Gray" CornerRadius="10">
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Username:" FontAttributes="Bold" />
+                    <Entry Text="{Binding UserName}" Placeholder="Enter username" />
+                    
+                    <Label Text="Password:" FontAttributes="Bold" />
+                    <Entry Text="{Binding Password}" Placeholder="Enter password" IsPassword="True" />
+                    
+                    <Label Text="Role:" FontAttributes="Bold" />
+                    <Picker Title="Select Role" 
+                            SelectedItem="{Binding SelectedRole}"
+                            ItemsSource="{Binding Roles}" />
+                </VerticalStackLayout>
+            </Frame>
+            
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Button Text="Add" 
+                        Command="{Binding AddUserCommand}"
+                        BackgroundColor="Green"
+                        TextColor="White"
+                        WidthRequest="100" />
+                <Button Text="Cancel" 
+                        Command="{Binding CancelCommand}"
+                        BackgroundColor="Gray"
+                        TextColor="White"
+                        WidthRequest="100" />
             </HorizontalStackLayout>
         </VerticalStackLayout>
-    </Frame>
+    </ScrollView>
 </ContentPage>
