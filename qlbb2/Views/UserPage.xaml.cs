@@ -28,17 +28,20 @@ public partial class UserPage : ContentPage
 		InitializeComponent();
 		_vm = vm;
         BindingContext = _vm;
+        System.Diagnostics.Debug.WriteLine("UserPage constructor - BindingContext set");
     }
     
     protected override void OnAppearing()
     {
         base.OnAppearing();
+        System.Diagnostics.Debug.WriteLine("UserPage OnAppearing - Loading users");
         _vm.LoadUsers();
     }
     
     protected override void OnNavigatedTo(NavigatedToEventArgs args)
     {
         base.OnNavigatedTo(args);
+        System.Diagnostics.Debug.WriteLine("UserPage OnNavigatedTo - Loading users");
         _vm.LoadUsers();
     }
 }

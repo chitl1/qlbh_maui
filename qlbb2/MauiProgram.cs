@@ -32,8 +32,8 @@ namespace qlbb2
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
-            var folderPath = FileSystem.Current.AppDataDirectory;
-            //var folderPath = @"D:\Hoc\maui\database\qlbb2";
+            //var folderPath = FileSystem.Current.AppDataDirectory;
+            var folderPath = @"D:\Hoc\maui\database\qlbb2";
             var dbPath = Path.Combine(folderPath, "app_qlbb2.db");
             var connectionString = $"Data Source={dbPath}";
 
