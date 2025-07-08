@@ -10,7 +10,7 @@
             <SearchBar x:Name="SearchBar" 
                        Placeholder="{Binding [PlaceholderSearch], Source={x:Static helper:LocalizationResourceManager.Instance}}" 
                        Text="{Binding SearchText}"
-                       SearchCommand="{Binding SearchUsersCommand}"
+                       TextChanged="OnSearchTextChanged"
                        WidthRequest="200" />
             <Button Text="{Binding [Add], Source={x:Static helper:LocalizationResourceManager.Instance}}"   Command="{Binding AddUserCommand}"/>
             <Button Text="{Binding [Clear], Source={x:Static helper:LocalizationResourceManager.Instance}}"  Command="{Binding ClearSearchCommand}"/>

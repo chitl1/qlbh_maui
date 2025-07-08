@@ -69,8 +69,14 @@ namespace qlbb2.ViewModels.Users
             await LoadUsersAsync();
         }
         
+        // Public method for debounced search
+        public async void SearchUsers()
+        {
+            await SearchUsersAsync();
+        }
+        
         [RelayCommand]
-        private async void SearchUsers()
+        private async Task SearchUsersAsync()
         {
             if (string.IsNullOrWhiteSpace(SearchText))
             {
@@ -81,6 +87,7 @@ namespace qlbb2.ViewModels.Users
             try
             {
                 IsLoading = true;
+                System.Diagnostics.Debug.WriteLine($"Searching for: {SearchText}");
                 var filteredUsers = await _userService.SearchUsersAsync(SearchText);
                 
                 // Clear and add items to ensure UI updates
@@ -89,6 +96,8 @@ namespace qlbb2.ViewModels.Users
                 {
                     Users.Add(user);
                 }
+                
+                System.Diagnostics.Debug.WriteLine($"Found {filteredUsers.Count} users matching '{SearchText}'");
             }
             catch (Exception ex)
             {
