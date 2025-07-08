@@ -7,8 +7,11 @@
              Title="UserPage">
     <Grid RowDefinitions="Auto,*">
         <HorizontalStackLayout Grid.Row="0" Spacing="10" Padding="10">
-            <Entry x:Name="SearchEntry" Placeholder="{Binding [PlaceholderSearch], Source={x:Static helper:LocalizationResourceManager.Instance}}" Text="{Binding SearchText}"  />
-            <Button Text="{Binding [Search], Source={x:Static helper:LocalizationResourceManager.Instance}}" Command="{Binding SearchUsersCommand}" />
+            <SearchBar x:Name="SearchBar" 
+                       Placeholder="{Binding [PlaceholderSearch], Source={x:Static helper:LocalizationResourceManager.Instance}}" 
+                       Text="{Binding SearchText}"
+                       SearchCommand="{Binding SearchUsersCommand}"
+                       WidthRequest="200" />
             <Button Text="{Binding [Add], Source={x:Static helper:LocalizationResourceManager.Instance}}"   Command="{Binding AddUserCommand}"/>
             <Button Text="{Binding [Clear], Source={x:Static helper:LocalizationResourceManager.Instance}}"  Command="{Binding ClearSearchCommand}"/>
         </HorizontalStackLayout>
