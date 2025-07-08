@@ -6,15 +6,26 @@
              xmlns:helper="clr-namespace:qlbb2.Helper"
              Title="UserPage">
     <Grid RowDefinitions="Auto,*">
-        <HorizontalStackLayout Grid.Row="0" Spacing="10" Padding="10">
-            <SearchBar x:Name="SearchBar" 
+        <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Padding="10">
+            <SearchBar Grid.Column="0"
+                       x:Name="SearchBar" 
                        Placeholder="{Binding [PlaceholderSearch], Source={x:Static helper:LocalizationResourceManager.Instance}}" 
                        Text="{Binding SearchText}"
                        TextChanged="OnSearchTextChanged"
-                       WidthRequest="200" />
-            <Button Text="{Binding [Add], Source={x:Static helper:LocalizationResourceManager.Instance}}"   Command="{Binding AddUserCommand}"/>
-            <Button Text="{Binding [Clear], Source={x:Static helper:LocalizationResourceManager.Instance}}"  Command="{Binding ClearSearchCommand}"/>
-        </HorizontalStackLayout>
+                       HorizontalOptions="Start" />
+            <Button Grid.Column="1"
+                    Text="+"
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    CornerRadius="25"
+                    BackgroundColor="#1976D2"
+                    TextColor="White"
+                    Command="{Binding AddUserCommand}"
+                    HorizontalOptions="End"
+                    Margin="10,0,0,0" />
+        </Grid>
         
         <Grid Grid.Row="1" IsVisible="{Binding IsLoading}">
             <ActivityIndicator IsRunning="True" IsVisible="True" HorizontalOptions="Center" VerticalOptions="Center" />
