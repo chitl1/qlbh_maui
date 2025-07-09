@@ -16,7 +16,7 @@
                        TextChanged="OnSearchTextChanged"
                        HorizontalOptions="Start" 
                        />
-            <Button Grid.Column="1"
+            <!--<Button Grid.Column="1"
                     Text="+"
                     FontSize="24"
                     FontAttributes="Bold"
@@ -27,7 +27,19 @@
                     TextColor="White"
                     Command="{Binding AddUserCommand}"
                     HorizontalOptions="End"
-                    Margin="10,0,0,0" />
+                    Margin="10,0,0,0" />-->
+            <Button Grid.Column="1"
+                    Text="+"
+                    WidthRequest="50"
+                    Margin="10,0,0,0"
+                    HeightRequest="50"
+                    CornerRadius="25"
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    BackgroundColor="{StaticResource SuccessGreen}"
+                    Command="{Binding AddUserCommand}"
+                    HorizontalOptions="End"
+                    />
         </Grid>
         
         <!-- Loading Indicator -->
@@ -56,7 +68,7 @@
                             <SwipeItems>
                                 <SwipeItem
                                     Text="Xóa"
-                                    BackgroundColor="Red"
+                                    BackgroundColor="{StaticResource DangerRed}" 
                                     Command="{Binding Source={x:Reference UserPageRoot}, Path=BindingContext.DeleteUserCommand}"
                                     CommandParameter="{Binding .}" />
                             </SwipeItems>
@@ -70,7 +82,7 @@
                             <Frame Grid.Column="0"
                                    HeightRequest="48" WidthRequest="48"
                                    CornerRadius="24"
-                                   BackgroundColor="Green"
+                                   BackgroundColor="{StaticResource SuccessGreen}"
                                    VerticalOptions="Center"
                                    HorizontalOptions="Center">
                                 <Label Text="{Binding UserName, Converter={StaticResource FirstCharConverter}}"
@@ -82,9 +94,11 @@
                             </Frame>
                             <!-- Thông tin User -->
                             <VerticalStackLayout Grid.Column="1" Padding="10,0" Spacing="2">
-                                <Label Text="{Binding UserName}" FontAttributes="Bold" FontSize="16" TextColor="Green"/>
+                                <Label Text="{Binding UserName}" FontAttributes="Bold" FontSize="16" 
+                                       />
                                 <Label Text="{Binding Password}" FontSize="13" TextColor="#263238"/>
-                                <Label Text="{Binding Role}" FontSize="13" TextColor="Green"/>
+                                <Label Text="{Binding Role}" FontSize="13" 
+                                       />
                             </VerticalStackLayout>
                             <!-- Tap để edit -->
                             <Grid.GestureRecognizers>

@@ -6,34 +6,163 @@
 
     <!-- Note: For Android please see also Platforms\Android\Resources\values\colors.xml -->
 
-    <Color x:Key="Primary">#512BD4</Color>
-    <Color x:Key="PrimaryDark">#ac99ea</Color>
-    <Color x:Key="PrimaryDarkText">#242424</Color>
-    <Color x:Key="Secondary">#DFD8F7</Color>
-    <Color x:Key="SecondaryDarkText">#9880e5</Color>
-    <Color x:Key="Tertiary">#2B0B98</Color>
+    <!-- =========================================== -->
+    <!-- COLOR NAMING CONVENTIONS & USAGE GUIDELINES -->
+    <!-- =========================================== -->
+    
+    <!-- NAMING PATTERNS:
+         - Primary: Main brand color
+         - Secondary: Supporting brand color  
+         - Success: Positive actions (Add, Save, Confirm)
+         - Info: Informational actions (Edit, View, Details)
+         - Warning: Caution actions (Update, Modify)
+         - Danger: Destructive actions (Delete, Remove, Cancel)
+         - Neutral: Non-actionable elements (Background, Border)
+         - Text: Text colors for different contexts
+         - Status: Status indicators (Active, Inactive, Pending)
+    -->
 
-    <Color x:Key="White">White</Color>
-    <Color x:Key="Black">Black</Color>
-    <Color x:Key="Magenta">#D600AA</Color>
-    <Color x:Key="MidnightBlue">#190649</Color>
-    <Color x:Key="OffBlack">#1f1f1f</Color>
+    <!-- USAGE GUIDELINES:
+         - SuccessGreen: Use for Add, Create, Save, Confirm buttons
+         - InfoBlue: Use for Edit, View, Details, Navigate buttons  
+         - WarningOrange: Use for Update, Modify, Warning actions
+         - DangerRed: Use for Delete, Remove, Cancel, Close buttons
+         - SecondaryGray: Use for Cancel, Back, Secondary actions
+         - HeaderPrimary: Use for main page headers, titles
+         - HeaderSecondary: Use for sub-headers, section titles
+         - TextPrimary: Use for main content text
+         - TextSecondary: Use for secondary text, descriptions
+         - BackgroundPrimary: Use for main background
+         - BackgroundSecondary: Use for card backgrounds
+         - BorderPrimary: Use for main borders
+         - BorderSecondary: Use for subtle borders
+    -->
 
-    <Color x:Key="Gray100">#E1E1E1</Color>
-    <Color x:Key="Gray200">#C8C8C8</Color>
-    <Color x:Key="Gray300">#ACACAC</Color>
-    <Color x:Key="Gray400">#919191</Color>
-    <Color x:Key="Gray500">#6E6E6E</Color>
-    <Color x:Key="Gray600">#404040</Color>
-    <Color x:Key="Gray900">#212121</Color>
-    <Color x:Key="Gray950">#141414</Color>
+    <!-- =========================================== -->
+    <!-- BRAND COLORS -->
+    <!-- =========================================== -->
+    <Color x:Key="Primary">#512BD4</Color>                    <!-- Main brand color -->
+    <Color x:Key="PrimaryDark">#ac99ea</Color>                <!-- Dark variant of primary -->
+    <Color x:Key="PrimaryDarkText">#242424</Color>            <!-- Text on primary dark -->
+    <Color x:Key="Secondary">#DFD8F7</Color>                  <!-- Supporting brand color -->
+    <Color x:Key="SecondaryDarkText">#9880e5</Color>          <!-- Text on secondary -->
+    <Color x:Key="Tertiary">#2B0B98</Color>                   <!-- Accent brand color -->
 
+    <!-- =========================================== -->
+    <!-- BASE COLORS -->
+    <!-- =========================================== -->
+    <Color x:Key="White">White</Color>                        <!-- Pure white -->
+    <Color x:Key="Black">Black</Color>                        <!-- Pure black -->
+    <Color x:Key="Transparent">Transparent</Color>            <!-- Transparent -->
+    <Color x:Key="Magenta">#D600AA</Color>                    <!-- Accent magenta -->
+    <Color x:Key="MidnightBlue">#190649</Color>               <!-- Dark blue -->
+    <Color x:Key="OffBlack">#1f1f1f</Color>                   <!-- Off-black -->
+
+    <!-- =========================================== -->
+    <!-- GRAY SCALE -->
+    <!-- =========================================== -->
+    <Color x:Key="Gray50">#FAFAFA</Color>                     <!-- Very light gray -->
+    <Color x:Key="Gray100">#E1E1E1</Color>                    <!-- Light gray -->
+    <Color x:Key="Gray200">#C8C8C8</Color>                    <!-- Medium light gray -->
+    <Color x:Key="Gray300">#ACACAC</Color>                    <!-- Medium gray -->
+    <Color x:Key="Gray400">#919191</Color>                    <!-- Medium dark gray -->
+    <Color x:Key="Gray500">#6E6E6E</Color>                    <!-- Dark gray -->
+    <Color x:Key="Gray600">#404040</Color>                    <!-- Very dark gray -->
+    <Color x:Key="Gray700">#2D2D2D</Color>                    <!-- Near black gray -->
+    <Color x:Key="Gray800">#1A1A1A</Color>                    <!-- Almost black -->
+    <Color x:Key="Gray900">#212121</Color>                    <!-- Dark gray -->
+    <Color x:Key="Gray950">#141414</Color>                    <!-- Near black -->
+
+    <!-- =========================================== -->
+    <!-- ACTION BUTTON COLORS (Semantic Colors) -->
+    <!-- =========================================== -->
+    <Color x:Key="SuccessGreen">#28A745</Color>               <!-- Add/Create/Save buttons -->
+    <Color x:Key="SuccessGreenLight">#4CAF50</Color>          <!-- Light success variant -->
+    <Color x:Key="SuccessGreenDark">#2E7D32</Color>           <!-- Dark success variant -->
+    
+    <Color x:Key="InfoBlue">#007BFF</Color>                   <!-- Edit/View/Details buttons -->
+    <Color x:Key="InfoBlueLight">#2196F3</Color>              <!-- Light info variant -->
+    <Color x:Key="InfoBlueDark">#1976D2</Color>               <!-- Dark info variant -->
+    
+    <Color x:Key="WarningOrange">#FFC107</Color>              <!-- Update/Modify/Warning buttons -->
+    <Color x:Key="WarningOrangeLight">#FFD54F</Color>         <!-- Light warning variant -->
+    <Color x:Key="WarningOrangeDark">#FF8F00</Color>          <!-- Dark warning variant -->
+    
+    <Color x:Key="DangerRed">#DC3545</Color>                  <!-- Delete/Remove/Cancel buttons -->
+    <Color x:Key="DangerRedLight">#F44336</Color>             <!-- Light danger variant -->
+    <Color x:Key="DangerRedDark">#D32F2F</Color>              <!-- Dark danger variant -->
+    
+    <Color x:Key="SecondaryGray">#6C757D</Color>              <!-- Cancel/Back/Secondary buttons -->
+    <Color x:Key="SecondaryGrayLight">#9E9E9E</Color>         <!-- Light secondary variant -->
+    <Color x:Key="SecondaryGrayDark">#424242</Color>          <!-- Dark secondary variant -->
+
+    <!-- =========================================== -->
+    <!-- HEADER & TITLE COLORS -->
+    <!-- =========================================== -->
+    <Color x:Key="HeaderPrimary">#1976D2</Color>              <!-- Main page headers -->
+    <Color x:Key="HeaderSecondary">#424242</Color>            <!-- Sub-headers, section titles -->
+    <Color x:Key="HeaderTertiary">#616161</Color>             <!-- Minor headers -->
+    <Color x:Key="TitlePrimary">#212121</Color>               <!-- Main titles -->
+    <Color x:Key="TitleSecondary">#424242</Color>             <!-- Secondary titles -->
+
+    <!-- =========================================== -->
+    <!-- TEXT COLORS -->
+    <!-- =========================================== -->
+    <Color x:Key="TextPrimary">#212121</Color>                <!-- Main content text -->
+    <Color x:Key="TextSecondary">#616161</Color>              <!-- Secondary text -->
+    <Color x:Key="TextTertiary">#9E9E9E</Color>               <!-- Tertiary text -->
+    <Color x:Key="TextDisabled">#BDBDBD</Color>               <!-- Disabled text -->
+    <Color x:Key="TextInverse">#FFFFFF</Color>                <!-- Text on dark backgrounds -->
+    <Color x:Key="TextLink">#1976D2</Color>                   <!-- Link text -->
+    <Color x:Key="TextError">#D32F2F</Color>                  <!-- Error text -->
+    <Color x:Key="TextSuccess">#2E7D32</Color>                <!-- Success text -->
+    <Color x:Key="TextWarning">#F57C00</Color>                <!-- Warning text -->
+
+    <!-- =========================================== -->
+    <!-- BACKGROUND COLORS -->
+    <!-- =========================================== -->
+    <Color x:Key="BackgroundPrimary">#FFFFFF</Color>          <!-- Main background -->
+    <Color x:Key="BackgroundSecondary">#F5F5F5</Color>        <!-- Secondary background -->
+    <Color x:Key="BackgroundTertiary">#EEEEEE</Color>         <!-- Tertiary background -->
+    <Color x:Key="BackgroundCard">#FFFFFF</Color>             <!-- Card background -->
+    <Color x:Key="BackgroundOverlay">#00000080</Color>        <!-- Overlay background -->
+    <Color x:Key="BackgroundSuccess">#E8F5E8</Color>          <!-- Success background -->
+    <Color x:Key="BackgroundError">#FFEBEE</Color>            <!-- Error background -->
+    <Color x:Key="BackgroundWarning">#FFF3E0</Color>          <!-- Warning background -->
+    <Color x:Key="BackgroundInfo">#E3F2FD</Color>             <!-- Info background -->
+
+    <!-- =========================================== -->
+    <!-- BORDER COLORS -->
+    <!-- =========================================== -->
+    <Color x:Key="BorderPrimary">#E0E0E0</Color>              <!-- Main borders -->
+    <Color x:Key="BorderSecondary">#F5F5F5</Color>            <!-- Secondary borders -->
+    <Color x:Key="BorderFocus">#1976D2</Color>                <!-- Focus borders -->
+    <Color x:Key="BorderError">#F44336</Color>                <!-- Error borders -->
+    <Color x:Key="BorderSuccess">#4CAF50</Color>              <!-- Success borders -->
+    <Color x:Key="BorderWarning">#FF9800</Color>              <!-- Warning borders -->
+
+    <!-- =========================================== -->
+    <!-- STATUS COLORS -->
+    <!-- =========================================== -->
+    <Color x:Key="StatusActive">#4CAF50</Color>               <!-- Active status -->
+    <Color x:Key="StatusInactive">#9E9E9E</Color>             <!-- Inactive status -->
+    <Color x:Key="StatusPending">#FF9800</Color>              <!-- Pending status -->
+    <Color x:Key="StatusError">#F44336</Color>                <!-- Error status -->
+    <Color x:Key="StatusWarning">#FFC107</Color>              <!-- Warning status -->
+    <Color x:Key="StatusInfo">#2196F3</Color>                 <!-- Info status -->
+
+    <!-- =========================================== -->
+    <!-- SOLID COLOR BRUSHES -->
+    <!-- =========================================== -->
+    
+    <!-- Brand Brushes -->
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
     <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>
     <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}"/>
     <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}"/>
 
+    <!-- Gray Scale Brushes -->
     <SolidColorBrush x:Key="Gray100Brush" Color="{StaticResource Gray100}"/>
     <SolidColorBrush x:Key="Gray200Brush" Color="{StaticResource Gray200}"/>
     <SolidColorBrush x:Key="Gray300Brush" Color="{StaticResource Gray300}"/>
@@ -42,4 +171,38 @@
     <SolidColorBrush x:Key="Gray600Brush" Color="{StaticResource Gray600}"/>
     <SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}"/>
     <SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}"/>
+
+    <!-- Action Button Brushes -->
+    <SolidColorBrush x:Key="SuccessGreenBrush" Color="{StaticResource SuccessGreen}"/>
+    <SolidColorBrush x:Key="InfoBlueBrush" Color="{StaticResource InfoBlue}"/>
+    <SolidColorBrush x:Key="WarningOrangeBrush" Color="{StaticResource WarningOrange}"/>
+    <SolidColorBrush x:Key="DangerRedBrush" Color="{StaticResource DangerRed}"/>
+    <SolidColorBrush x:Key="SecondaryGrayBrush" Color="{StaticResource SecondaryGray}"/>
+
+    <!-- Header Brushes -->
+    <SolidColorBrush x:Key="HeaderPrimaryBrush" Color="{StaticResource HeaderPrimary}"/>
+    <SolidColorBrush x:Key="HeaderSecondaryBrush" Color="{StaticResource HeaderSecondary}"/>
+
+    <!-- Text Brushes -->
+    <SolidColorBrush x:Key="TextPrimaryBrush" Color="{StaticResource TextPrimary}"/>
+    <SolidColorBrush x:Key="TextSecondaryBrush" Color="{StaticResource TextSecondary}"/>
+    <SolidColorBrush x:Key="TextInverseBrush" Color="{StaticResource TextInverse}"/>
+    <SolidColorBrush x:Key="TextLinkBrush" Color="{StaticResource TextLink}"/>
+    <SolidColorBrush x:Key="TextErrorBrush" Color="{StaticResource TextError}"/>
+    <SolidColorBrush x:Key="TextSuccessBrush" Color="{StaticResource TextSuccess}"/>
+
+    <!-- Background Brushes -->
+    <SolidColorBrush x:Key="BackgroundPrimaryBrush" Color="{StaticResource BackgroundPrimary}"/>
+    <SolidColorBrush x:Key="BackgroundSecondaryBrush" Color="{StaticResource BackgroundSecondary}"/>
+    <SolidColorBrush x:Key="BackgroundCardBrush" Color="{StaticResource BackgroundCard}"/>
+
+    <!-- Border Brushes -->
+    <SolidColorBrush x:Key="BorderPrimaryBrush" Color="{StaticResource BorderPrimary}"/>
+    <SolidColorBrush x:Key="BorderFocusBrush" Color="{StaticResource BorderFocus}"/>
+    <SolidColorBrush x:Key="BorderErrorBrush" Color="{StaticResource BorderError}"/>
+
+    <!-- Status Brushes -->
+    <SolidColorBrush x:Key="StatusActiveBrush" Color="{StaticResource StatusActive}"/>
+    <SolidColorBrush x:Key="StatusInactiveBrush" Color="{StaticResource StatusInactive}"/>
+    <SolidColorBrush x:Key="StatusErrorBrush" Color="{StaticResource StatusError}"/>
 </ResourceDictionary>

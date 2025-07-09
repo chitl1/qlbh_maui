@@ -7,7 +7,7 @@
     xmlns:helper="clr-namespace:qlbb2.Helper"
     Shell.FlyoutBehavior="Disabled"
     Title="qlbb2">
-    <!--<Shell.TitleView>
+    <Shell.TitleView>
         <Grid Padding="0" ColumnSpacing="20">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -31,7 +31,7 @@
                      Text="{Binding [Logout], Source={x:Static helper:LocalizationResourceManager.Instance}}" 
                      Command="{Binding LogoutCommand}"/>
         </Grid>
-    </Shell.TitleView>-->
+    </Shell.TitleView>
 
     <TabBar>
         <ShellContent
